@@ -3,6 +3,9 @@ window.onload = function() {
 	document.getElementById('report').style.display = "none";
 };
 
+const actualPokemon = 0;
+const preEvolution = 1;
+
 var routes = {
 	'SPROUT TOWER 1F': 1,
 	'SPROUT TOWER 2F': 2,
@@ -339,8 +342,6 @@ function toggleReportDisplay() {
 }	
 
 function analyseObtainableGoals(obtainablePokes) {
-	const actualPokemon = 0;
-	const preEvolution = 1;
 	var keys = Object.keys(pokeGoals);
 	for(var i = 0; i < keys.length; ++i) {
 		// requirements has two lists -> one with the actual Pokemon and another with the preevos that can be evolved into the Pokemon
@@ -348,8 +349,7 @@ function analyseObtainableGoals(obtainablePokes) {
 		var availabilities = [];
 		for(var j = 0; j < requirements[actualPokemon].length; ++j) {
 			var locations = checkPokemonAvailability(obtainablePokes, requirements[actualPokemon][j]);
-			if(Object.keys(locations).length > 0)
-				availabilities.push(locations);
+			availabilities.push(locations);
 		}
 		if(requirements.length == 2){
 			var availabilities_evolve = [];
@@ -370,8 +370,6 @@ function checkPokemonAvailability(obtainablePokes, pokemon) {
 	const landEncounterSlots = 7;
 	const waterEncounterSlots = 3;
 	const bugCatchingSlots = 10;
-	if (pokemon == "PICHU")
-		console.log("Teste");
 	var availabilities = {};
 	var starterIndex = obtainablePokes.starters.indexOf(pokemon);
 	if(starterIndex != -1) availabilities.starter = "-";
@@ -380,7 +378,6 @@ function checkPokemonAvailability(obtainablePokes, pokemon) {
 		if(obtainablePokes.statics[static_keys[i]].localeCompare(pokemon) == 0)
 			availabilities[static_keys[i]] = '-';
 	}
-	// List with the names of the routes, used to access the name -> 
 	var routeKeys = Object.keys(obtainablePokes.routes);
 	for(var i = 0; i < routeKeys.length; ++i) {
 		var encounterTableSlots = obtainablePokes.routes[routeKeys[i]].length;
@@ -412,86 +409,60 @@ function checkPokemonAvailability(obtainablePokes, pokemon) {
 	return availabilities;
 }
 
+function addListOfLocations(goal, availabilities, isPreEvo) {
+	var html = "";
+	var index = isPreEvo? preEvolution : actualPokemon;
+	for(var i = 0; i < availabilities.length; ++i) {
+		var locations = Object.keys(availabilities[i]);
+		for(var j = 0; j < locations.length; ++j) {
+			if(locations[j] == 'starter'){
+				var pokemon = pokeGoals[goal][index][i];
+				if(isPreEvo)
+					html += ("<li> Choose and evolve the starter " + pokemon + ". </li>");
+				else
+					html += ("<li> Choose the starter " + pokemon + ". </li>");
+			}
+			else if(Object.keys(statics).indexOf(locations[j]) != -1) {
+				var pokemon = pokeGoals[goal][index][i];
+				var location = locations[j];
+				if(isPreEvo)
+					html += ("<li> Evolve " + pokemon + ", available via the static " + locationRenamer(location) + ". </li>");
+				else
+					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location) + ". </li>");
+			}
+			else {
+				var pokemon = pokeGoals[goal][index][i];
+				var rarity = availabilities[i][locations[j]];
+				var location = locations[j];
+				if(isPreEvo)
+					html += "<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>"
+				else
+					html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
+			}
+		}
+	}
+	return html;
+}
+
 function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
 	var html = "";
+	var listId = "obtainable";
+
+	html += addListOfLocations(goal, availabilities, false);
+
 	// Both the actual Pokemons and its pre evos can be used to complete the goal
-	if(availabilities.length > 0 && availabilities_evolve.length > 0) {
-		for(var i = 0; i < availabilities.length; ++i) {
-			var locations = Object.keys(availabilities[i]);
-			for(var j = 0; j < locations.length; ++j) {
-				if(locations[j] == 'starter'){
-					var pokemon = pokeGoals[goal][0][i];
-					html += ("<li> Choose the starter " + pokemon + ". </li>");
-				}
-				else if(Object.keys(statics).indexOf(locations[j]) != -1) {
-					var pokemon = pokeGoals[goal][0][i];
-					var location = locations[j];
-					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location) + ". </li>");
-				}
-				else {
-					var pokemon = pokeGoals[goal][0][i];
-					var rarity = availabilities[i][locations[j]];
-					var location = locations[j];
-					html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
-				}
-			}
-		}
-		for(var i = 0; i < availabilities_evolve.length; ++i) {
-			var locations = Object.keys(availabilities_evolve[i]);
-			for(var j = 0; j < locations.length; ++j) {
-				if(locations[j] == 'starter'){
-					var pokemon = pokeGoals[goal][1][i];
-					html += ("<li> Choose and evolve the starter " + pokemon + ". </li>");
-				}
-				else if(Object.keys(statics).indexOf(locations[j]) != -1){
-					var pokemon = pokeGoals[goal][1][i];
-					var location = locations[j];
-					html += ("<li> Evolve " + pokemon + ", available via the static " + locationRenamer(location) + ". </li>");
-				}
-				else {
-					var pokemon = pokeGoals[goal][1][i];
-					var rarity = availabilities_evolve[i][locations[j]];
-					var location = locations[j];
-					html += ("<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
-				}
-			}
-		}
-		html = "<ul>" + html + "</ul>";
-		html = "<li>" + goal + html + "</li>";
-		document.getElementById("obtainable").innerHTML += html;
-	}
-	// Only the actual Pokemons can be used to complete the goal
-	else if(availabilities.length > 0) {
-		for(var i = 0; i < availabilities.length; ++i) {
-			var locations = Object.keys(availabilities[i]);
-			for(var j = 0; j < locations.length; ++j) {
-				if(locations[j] == 'starter'){
-					var pokemon = pokeGoals[goal][0][i];
-					html += ("<li> Choose the starter " + pokemon + ". </li>");
-				}
-				else if(Object.keys(statics).indexOf(locations[j]) != -1) {
-					var pokemon = pokeGoals[goal][0][i];
-					var location = locations[j];
-					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location) + ". </li>");
-				}
-				else {
-					var pokemon = pokeGoals[goal][0][i];
-					var rarity = availabilities[i][locations[j]];
-					var location = locations[j];
-					html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
-				}
-			}
-		}
-		html = "<ul>" + html + "</ul>";
-		html = "<li>" + goal + html + "</li>";
-		document.getElementById("obtainable").innerHTML += html;
-	}
-	// Goal is not available at all
-	else {
-		html = "<li>" + goal + html + "</li>";
-		document.getElementById("unobtainable").innerHTML += html;
-	}
+	if(availabilities_evolve.length >= 0)
+		html += addListOfLocations(goal, availabilities_evolve, true);
+
+	// Goal is not obtainable
+	if(html == "")
+		listId = "unobtainable";
+
+	html = "<ul>" + html + "</ul>";
+	html = "<li>" + goal + html + "</li>";
+	document.getElementById(listId).innerHTML += html;
 }
+
 
 function locationRenamer(text) {
 	if (text == "CUBONE")
