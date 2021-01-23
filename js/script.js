@@ -320,7 +320,11 @@ function handleLogFile(){
 function toggleReportDisplay() {
 	const options = document.getElementById('options');
 	const report = document.getElementById('report');
+	const obtainable = document.getElementById('obtainable'); 
+	const spoilerfreemode = document.getElementById('spoilerfreemode'); 
 	if(report.style.display == 'none'){
+		if(spoilerfreemode.checked)
+			obtainable.style.display = 'none';
 		options.style.display = 'none';
         report.style.display = 'block';
     }
