@@ -30,13 +30,13 @@ var routes = {
 	'ILEX FOREST': 21,
 	'MT.MORTAR ENTRANCE': 22,
 	'MT.MORTAR 1F': 23,
-	'MT.MORTAR B1F': 24,
-	'MT.MORTAR 2F': 25,
-	'ICE PATH ENTRANCE': 26,
+	'MT.MORTAR 2F': 24,
+	'MT.MORTAR B1F': 25,
+	'ICE PATH ENTRANCE/EXIT': 26,
 	'ICE PATH B1F': 27,
 	'ICE PATH B2F': 28,
-	'ICE PATH B3F': 29,
-	'ICE PATH B4F': 30,
+	'ICE PATH TM ROOM': 29,
+	'ICE PATH ROCK SMASH ROOM': 30,
 	'WHIRL ISLANDS 1': 31,
 	'WHIRL ISLANDS 2': 32,
 	'WHIRL ISLANDS 3': 33,
@@ -76,8 +76,8 @@ var routes = {
 	'SLOWPOKE WELL B1F SURFING': 67,
 	'ILEX FOREST SURFING': 68,
 	'MT.MORTAR ENTRANCE SURFING': 69,
-	'MT.MORTAR B1F SURFING': 70,
-	'MT.MORTAR 2F SURFING': 71,
+	'MT.MORTAR 2F SURFING': 70,
+	'MT.MORTAR B1F SURFING': 71,
 	'WHIRL ISLANDS 1 SURFING': 72,
 	'WHIRL ISLANDS 2 SURFING': 73,
 	'WHIRL ISLANDS 3 SURFING': 74,
@@ -245,67 +245,58 @@ var statics = {
 };
 
 var pokeGoals = {
-	"Magcargo or Magneton" : [["MAGCARGO", "MAGNETON"]],
-	"Mantine or Skarmory" : [["MANTINE", "SKARMORY"]],
-	"Miltank or Tauros" : [["MILTANK", "TAUROS"]],
-	"Onix or Scyther" : [["ONIX", "SCYTHER"]],
-	"Ho-oh or Lugia" : [["HO-OH", "LUGIA"]],
-
-	"Mewtwo, Mew or Celebi" : [["MEWTWO", "MEW", "CELEBI"]],
-	"Hitmonchan, Hitmontop, or Hitmonlee" : [["HITMONCHAN", "HITMONTOP", "HITMONLEE"], ["TYROGUE"]],
-	"Articuno, Zapdos, or Moltres" : [["ARTICUNO", "ZAPDOS", "MOLTRES"]],
-	"Electabuzz, Jynx, or Magmar" : [["ELECTABUZZ", "JYNX", "MAGMAR"]],
-	"Gligar, Delibird, or Sneasel" : [["GLIGAR", "DELIBIRD", "SNEASEL"]],
-
-	"Yanma or Piloswine" : [["YANMA", "PILOSWINE"]],
-	"Murkrow or Misdreavus" : [["MURKROW", "MISDREAVUS"]],
-	"Venonat or Paras" : [["VENONAT", "PARAS"]],
-	"Cubone or Diglett" : [["CUBONE", "DIGLETT"]],
-
-	"Rhydon or Golem": [["RHYDON", "GOLEM"]],
-	"Ditto or Smeargle": [["DITTO", "SMEARGLE"]],
-	"Mankey or Meowth": [["MANKEY", "MEOWTH"]],
-	"Houndour or Snubbull": [["HOUNDOUR", "SNUBULL"]],
-	"Phanpy or Teddiursa": [["PHANPY", "TEDDIURSA"]],
-
-	"Omanyte, Kabuto, or Aerodactyl": [["OMANYTE", "KABUTO", "AERODACTYL"]],
-	"Dunsparce, Wobbuffet, or Girafarig": [["DUNSPARCE", "WOBBUFFET", "GIRAFARIG"]],
-	"Zubat, Koffing, or Grimer": [["ZUBAT", "KOFFING", "GRIMER"]],
-	"Heracross, Pinsir, or Aipom": [["HERACROSS", "PINSIR", "AIPOM"]],
-	"Suicune, Raikou, or Entei": [["SUICUNE", "RAIKOU", "ENTEI"]],
-
-	"A Dark-Type Pokémon": [["HOUNDOOM", "HOUNDOUR", "SNEASEL", "MURKROW", "TYRANITAR"]],
-	"A Steel-Type Pokémon": [["MAGNEMITE", "MAGNETON", "SKARMORY", "SCIZOR", "STEELIX", "FORRETRESS"]],
-	"Pidgeotto or Raticate": [["PIDGEOTTO", "RATICATE"], ["PIDGEY", "RATTATA"]],
-	"Ariados or Ledian": [["ARIADOS", "LEDIAN"], ["SPINARAK", "LEDYBA"]],
-	"Sandslash or Arbok": [["SANDSLASH", "ARBOK"], ["SANDSHREW", "EKANS"]],
-	"Corsola or Qwilfish": [["CORSOLA", "QWILFISH"]],
-
-	"Furret or Kadabra": [["FURRET", "KADABRA"], ["SENTRET", "ABRA"]],
-	"Noctowl or Fearow": [["NOCTOWL", "FEAROW"], ["HOOTHOOT", "SPEAROW"]],
-
-	"Nidoking or Nidoqueen": [["NIDOKING", "NIDOQUEEN"], ["NIDORAN♂", "NIDORINO", "NIDORAN♀", "NIDORINA"]],
-	"Vileplume or Victreebel": [["VILEPLUME", "VICTREEBEL"], ["ODDISH", "GLOOM", "BELLSPROUT", "WEEPINBELL"]],
-	"Bayleef, Quilava, or Croconaw": [["BAYLEEF", "QUILAVA", "CROCONAW"], ["CHIKORITA", "CYNDAQUIL", "TOTODILE"]],
-	"Ivysaur, Charmeleon, or Wartortle": [["IVYSAUR", "CHARMELEON", "WARTORTLE"], ["BULBASAUR", "CHARMANDER", "SQUIRTLE"]],
-	"Beedrill or Butterfree": [["BEEDRILL", "BUTTERFREE"], ["WEEDLE", "KAKUNA", "CATERPIE", "METAPOD"]],
-
-	"Starmie or Cloyster": [["STARMIE", "CLOYSTER"], ["STARYU", "SHELLDER"]],
-	"Arcanine or Ninetales": [["ARCANINE", "NINETALES"], ["GROWLITHE", "VULPIX"]],
-	"Poliwrath or Slowking": [["POLIWRATH", "SLOWKING"], ["POLIWHIRL", "SLOWPOKE"]],
-	"Clefable or Wigglytuff": [["CLEFABLE", "WIGGLYTUFF"], ["CLEFAIRY", "JIGGLYPUFF"]],
-	"Sunflora or Exeggutor": [["SUNFLORA", "EXEGGUTOR"], ["SUNKERN", "EXEGGCUTE"]],
-
-	"3 Different Genderless Pokémon": [["MAGNEMITE", "MAGNETON", "VOLTORB", "ELECTRODE", "STARYU", "STARMIE", "PORYGON", "PORYGON2",
-	"DITTO", "ARTICUNO", "ZAPDOS", "MOLTRES", "MEWTWO", "MEW", "UNOWN", "RAIKOU", "ENTEI", "SUICUNE", "LUGIA", "HO-OH", "CELEBI"], ["STARYU"]],
 	"2 Different Baby Pokémon": [["PICHU"," CLEFFA", "IGGLYBUFF", "TOGEPI", "TYROGUE", "SMOOCHUM", "ELEKID", "MAGBY"]],
 	"2 Different Eeveelutions": [["JOLTEON", "FLAREON", "VAPOREON", "ESPEON", "UMBREON"], ["EEVEE"]],
-
+	"3 Different Genderless Pokémon": [["MAGNEMITE", "MAGNETON", "VOLTORB", "ELECTRODE", "STARYU", "STARMIE", "PORYGON", "PORYGON2",
+		"DITTO", "ARTICUNO", "ZAPDOS", "MOLTRES", "MEWTWO", "MEW", "UNOWN", "RAIKOU", "ENTEI", "SUICUNE", "LUGIA", "HO-OH", "CELEBI"], ["STARYU"]],
+	"A Dark-Type Pokémon": [["HOUNDOOM", "HOUNDOUR", "SNEASEL", "MURKROW", "TYRANITAR"]],
 	"A Dragon-Type Pokémon": [["DRATINI", "DRAGONAIR", "DRAGONITE", "KINGDRA"]],
 	"A Ghost-Type Pokémon": [["GASTLY", "HAUNTER", "GENGAR", "MISDREAVUS"]],
+	"A Steel-Type Pokémon": [["MAGNEMITE", "MAGNETON", "SKARMORY", "SCIZOR", "STEELIX", "FORRETRESS"]],
+	"Alakazam, Gengar, or Machamp": [["ALAKAZAM", "GENGAR", "MACHAMP"]],
+	"Arcanine or Ninetales": [["ARCANINE", "NINETALES"], ["GROWLITHE", "VULPIX"]],
+	"Ariados or Ledian": [["ARIADOS", "LEDIAN"], ["SPINARAK", "LEDYBA"]],
+	"Articuno, Zapdos, or Moltres" : [["ARTICUNO", "ZAPDOS", "MOLTRES"]],
+	"Bayleef, Quilava, or Croconaw": [["BAYLEEF", "QUILAVA", "CROCONAW"], ["CHIKORITA", "CYNDAQUIL", "TOTODILE"]],
+	"Beedrill or Butterfree": [["BEEDRILL", "BUTTERFREE"], ["WEEDLE", "KAKUNA", "CATERPIE", "METAPOD"]],
+	"Berry Juice or Elixer": [["SHUCKLE", "MAGIKARP"]],
+	"Clefable or Wigglytuff": [["CLEFABLE", "WIGGLYTUFF"], ["CLEFAIRY", "JIGGLYPUFF"]],
+	"Corsola or Qwilfish": [["CORSOLA", "QWILFISH"]],
+	"Cubone or Diglett" : [["CUBONE", "DIGLETT"]],
+	"Ditto or Smeargle": [["DITTO", "SMEARGLE"]],
+	"Dunsparce, Wobbuffet, or Girafarig": [["DUNSPARCE", "WOBBUFFET", "GIRAFARIG"]],
+	"Electabuzz, Jynx, or Magmar" : [["ELECTABUZZ", "JYNX", "MAGMAR"]],
 	"Forretress or Octillery": [["FORRETRESS", "OCTILLERY"]],
+	"Furret or Kadabra": [["FURRET", "KADABRA"], ["SENTRET", "ABRA"]],
+	"Gligar, Delibird, or Sneasel" : [["GLIGAR", "DELIBIRD", "SNEASEL"]],
+	"Heracross, Pinsir, or Aipom": [["HERACROSS", "PINSIR", "AIPOM"]],
+	"Hitmonchan, Hitmontop, or Hitmonlee" : [["HITMONCHAN", "HITMONTOP", "HITMONLEE"], ["TYROGUE"]],
+	"Ho-oh or Lugia" : [["HO-OH", "LUGIA"]],
+	"Houndour or Snubbull": [["HOUNDOUR", "SNUBBULL"]],
+	"Ivysaur, Charmeleon, or Wartortle": [["IVYSAUR", "CHARMELEON", "WARTORTLE"], ["BULBASAUR", "CHARMANDER", "SQUIRTLE"]],
+	"Magcargo or Magneton" : [["MAGCARGO", "MAGNETON"]],
+	"Mankey or Meowth": [["MANKEY", "MEOWTH"]],
+	"Mantine or Skarmory" : [["MANTINE", "SKARMORY"]],
+	"Mewtwo, Mew or Celebi" : [["MEWTWO", "MEW", "CELEBI"]],
+	"Miltank or Tauros" : [["MILTANK", "TAUROS"]],
+	"Murkrow or Misdreavus" : [["MURKROW", "MISDREAVUS"]],
+	"Nidoking or Nidoqueen": [["NIDOKING", "NIDOQUEEN"], ["NIDORAN♂", "NIDORINO", "NIDORAN♀", "NIDORINA"]],
+	"Noctowl or Fearow": [["NOCTOWL", "FEAROW"], ["HOOTHOOT", "SPEAROW"]],
+	"Omanyte, Kabuto, or Aerodactyl": [["OMANYTE", "KABUTO", "AERODACTYL"]],
+	"Onix or Scyther" : [["ONIX", "SCYTHER"]],
+	"Phanpy or Teddiursa": [["PHANPY", "TEDDIURSA"]],
+	"Pidgeotto or Raticate": [["PIDGEOTTO", "RATICATE"], ["PIDGEY", "RATTATA"]],
+	"Poliwrath or Slowking": [["POLIWRATH", "SLOWKING"], ["POLIWHIRL", "SLOWPOKE"]],
 	"Ponyta or Horsea": [["PONYTA", "HORSEA"]],
-	"Alakazam, Gengar, or Machamp": [["ALAKAZAM", "GENGAR", "MACHAMP"]]
+	"Rhydon or Golem": [["RHYDON", "GOLEM"]],
+	"Sandslash or Arbok": [["SANDSLASH", "ARBOK"], ["SANDSHREW", "EKANS"]],
+	"Starmie or Cloyster": [["STARMIE", "CLOYSTER"], ["STARYU", "SHELLDER"]],
+	"Suicune, Raikou, or Entei": [["SUICUNE", "RAIKOU", "ENTEI"]],
+	"Sunflora or Exeggutor": [["SUNFLORA", "EXEGGUTOR"], ["SUNKERN", "EXEGGCUTE"]],
+	"Venonat or Paras" : [["VENONAT", "PARAS"]],
+	"Vileplume or Victreebel": [["VILEPLUME", "VICTREEBEL"], ["ODDISH", "GLOOM", "BELLSPROUT", "WEEPINBELL"]],
+	"Yanma or Piloswine" : [["YANMA", "PILOSWINE"]],
+	"Zubat, Koffing, or Grimer": [["ZUBAT", "KOFFING", "GRIMER"]]
 }
 
 function handleLogFile(){
@@ -353,10 +344,9 @@ function analyseObtainableGoals(obtainablePokes) {
 		}
 		if(requirements.length == 2){
 			var availabilities_evolve = [];
-			for(var j = 0; j < requirements[1].length; ++j) {
+			for(var j = 0; j < requirements[preEvolution].length; ++j) {
 				var locations = checkPokemonAvailability(obtainablePokes, requirements[preEvolution][j]);
-				if(Object.keys(locations).length > 0)
-					availabilities_evolve.push(locations);
+				availabilities_evolve.push(locations);
 			}
 			addAvailabilitiesToWebPage(keys[i], availabilities, availabilities_evolve);
 		}
@@ -502,7 +492,11 @@ function extractRoutes(text, routesArray){
 	var ret = {};
 	var line;
 	for(var i=0; i<routesArray.length;++i){
-		ret[routesArray[i]] = extractRoute(text[index+routes[routesArray[i]]]);
+		try {
+		    ret[routesArray[i]] = extractRoute(text[index+routes[routesArray[i]]]);
+		} catch(e) {
+			console.log(routesArray[i]);
+		}	
 	}
 	return ret;
 }
@@ -722,11 +716,11 @@ function generateRoutesArray() {
 	}
 
 	if(document.getElementById('ice').checked) {
-		routesArray.push('ICE PATH ENTRANCE');
+		routesArray.push('ICE PATH ENTRANCE/EXIT');
 		routesArray.push('ICE PATH B1F');
 		routesArray.push('ICE PATH B2F');
-		routesArray.push('ICE PATH B3F');
-		routesArray.push('ICE PATH B4F');
+		routesArray.push('ICE PATH TM ROOM');
+		routesArray.push('ICE PATH ROCK SMASH ROOM');
 	}
 
 
