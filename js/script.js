@@ -309,7 +309,6 @@ var mtMortarWaterfallLockedItems = [97, 99, 101, 103, 105, 106, 107, 108, 109, 1
 var whirlpoolWaterfallLockedLocations = ["WHIRL ISLANDS",
 "SILVER CAVE",
 "DRAGON'S DEN",
-"TOHJO FALLS",
 "DIGLETT'S CAVE",
 "KANTO UNDERGROUND",
 "ROCK TUNNEL",
