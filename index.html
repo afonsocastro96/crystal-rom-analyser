@@ -8,238 +8,271 @@
 
 <div id="options">
 	<form>
-		<label for="logfile">Log File:</label>
-		<input type="file" id="logfile"><br><br>
+		<div>
+		<label class="title" for="logfile">Log File:</label>
+		<input type="file" id="logfile">
+		</div><br>
 
-		<label>Options: </label>
-		<input type="checkbox" id="spoilerfreemode"><label for="spoilerfreemode">Spoiler-free mode (check this if you are going to race and don't want to see where you can catch the Pokemon, just whether they exist or not)</label><br><br>
+		<div id="optionsbox">
+			<label class="title">Options: </label><br>
+			<input type="checkbox" id="spoilerfreemode"><label for="spoilerfreemode">Spoiler-free mode (check this if you are going to race and don't want to see where you can catch the Pokemon, just whether they exist or not)</label><br>
+			<input type="checkbox" id="noraresmode"><label for="noraresmode">No rares mode (check this if you want to guarantee that every goal has at least one Pokemon that is not a 10% encounter)</label>
+		</div><br>
+		<div id="optionaltrainersbox">
+			<label class="title">Optional Trainers: </label><br>
+			<input type="checkbox" id="leftside" checked><label for="leftside">Azalea Gym Left Side</label>
+			<input type="checkbox" id="rightside" checked><label for="rightside">Azalea Gym Right Side</label>
+			<input type="checkbox" id="39male"><label for="39male">Route 39 Male Pokéfan</label>
+			<input type="checkbox" id="39female"><label for="39female">Route 39 Female Pokéfan</label>
+			<input type="checkbox" id="32trainers"><label for="32trainers">Route 32 trainers</label>
+			<input type="checkbox" id="35trainers"><label for="35trainers">Route 35 trainers</label>
+			<input type="checkbox" id="44trainers"><label for="44trainers">Route 44 trainers</label>
+			<input type="checkbox" id="lighthousetrainers"><label for="lighthousetrainers">Lighthouse</label>
+			<input type="checkbox" id="nptrainers"><label for="nptrainers">National Park trainers</label>
+			<input type="checkbox" id="phonetrainers"><label for="phonetrainers">Phonebook trainers</label>
+			<input type="checkbox" id="maniacs"><label for="maniacs">Pokémaniacs</label>
+			<input type="checkbox" id="hikers"><label for="hikers">Hikers</label>
+			<input type="checkbox" id="swimmers"><label for="swimmers">Swimmers</label>
+			<input type="checkbox" id="olivinegym"><label for="olivinegym">Mineral Badge</label>
+			<input type="checkbox" id="mahoganygym"><label for="mahoganygym">Mahogany City Gym</label>
+			<input type="checkbox" id="blackthorngym"><label for="blackthorngym">Blackthorn City Gym</label>
+			<input type="checkbox" id="38lass"><label for="38lass">Route 38 Lass</label>
+			<input type="checkbox" id="lighthousesailor"><label for="lighthousesailor">Lighthouse Sailor</label>
+			<input type="checkbox" id="45blackbelt"><label for="45blackbelt">Route 45 Black Belt</label>
+			<input type="checkbox" id="mortarnerd"><label for="mortarnerd">Mt. Mortar Super Nerd</label>
+			<input type="checkbox" id="eusine"><label for="eusine">Eusine</label>
+			<input type="checkbox" id="alphpsychic"><label for="alphpsychic">Ruins of Alph Psychic</label>
+			<input type="checkbox" id="elders"><label for="elders">Tin Tower Elders</label>
+		</div><br>
 
-		<label>Optional Trainers: </label>
-		<input type="checkbox" id="32trainers"><label for="32trainers">Route 32 trainers</label>
-		<input type="checkbox" id="35trainers"><label for="35trainers">Route 35 trainers</label>
-		<input type="checkbox" id="44trainers"><label for="44trainers">Route 44 trainers</label>
-		<input type="checkbox" id="lighthousetrainers"><label for="lighthousetrainers">Lighthouse</label>
-		<input type="checkbox" id="nptrainers"><label for="nptrainers">National Park trainers</label>
-		<input type="checkbox" id="phonetrainers"><label for="phonetrainers">Phonebook trainers</label>
-		<input type="checkbox" id="maniacs"><label for="maniacs">Pokémaniacs</label>
-		<input type="checkbox" id="hikers"><label for="hikers">Hikers</label>
-		<input type="checkbox" id="swimmers"><label for="swimmers">Swimmers</label>
-		<input type="checkbox" id="olivinegym"><label for="olivinegym">Olivine City Gym</label>
-		<input type="checkbox" id="mahoganygyn"><label for="mahoganygyn">Mahogany City Gym</label>
-		<input type="checkbox" id="blackthorngym"><label for="blackthorngym">Blackthorn City Gym</label>
-		<input type="checkbox" id="38lass"><label for="38lass">Route 38 Lass</label>
-		<input type="checkbox" id="lighthousesailor"><label for="lighthousesailor">Lighthouse Sailor</label>
-		<input type="checkbox" id="45blackbelt"><label for="45blackbelt">Route 45 Black Belt</label>
-		<input type="checkbox" id="mortarnerd"><label for="mortarnerd">Mt. Mortar Super Nerd</label>
-		<input type="checkbox" id="grodunderground"><label for="grodunderground">Goldenrod Underground</label>
-		<input type="checkbox" id="38beauty"><label for="38beauty">Route 38 Beauty</label>
-		<input type="checkbox" id="eusine"><label for="eusine">Eusine</label>
-		<input type="checkbox" id="alphpsychic"><label for="alphpsychic">Ruins of Alph Psychic</label>
-		<input type="checkbox" id="elders"><label for="elders">Tin Tower Elders</label><br><br>
+		<div id="routesbox">
+			<label class="title">Locations:</label><br>
+			<label>Land Johto Routes:</label>
+			<input type="checkbox" id="29" checked><label for="29">29</label>
+			<input type="checkbox" id="30" checked><label for="30">30</label>
+			<input type="checkbox" id="31" checked><label for="31">31</label>
+			<input type="checkbox" id="32" checked><label for="32">32</label>
+			<input type="checkbox" id="33" checked><label for="33">33</label>
+			<input type="checkbox" id="34" checked><label for="34">34</label>
+			<input type="checkbox" id="35" checked><label for="35">35</label>
+			<input type="checkbox" id="36" checked><label for="36">36</label>
+			<input type="checkbox" id="37" checked><label for="37">37</label>
+			<input type="checkbox" id="38" checked><label for="38">38</label>
+			<input type="checkbox" id="39" checked><label for="39">39</label>
+			<input type="checkbox" id="42" checked><label for="42">42</label>
+			<input type="checkbox" id="43" checked><label for="43">43</label>
+			<input type="checkbox" id="44" checked><label for="44">44</label>
+			<input type="checkbox" id="45" checked><label for="45">45</label>
+			<input type="checkbox" id="46" checked><label for="46">46</label><br>
 
-		<label>Land Johto Routes:</label>
-		<input type="checkbox" id="29" checked><label for="29">29</label>
-		<input type="checkbox" id="30" checked><label for="30">30</label>
-		<input type="checkbox" id="31" checked><label for="31">31</label>
-		<input type="checkbox" id="32" checked><label for="32">32</label>
-		<input type="checkbox" id="33" checked><label for="33">33</label>
-		<input type="checkbox" id="34" checked><label for="34">34</label>
-		<input type="checkbox" id="35" checked><label for="35">35</label>
-		<input type="checkbox" id="36" checked><label for="36">36</label>
-		<input type="checkbox" id="37" checked><label for="37">37</label>
-		<input type="checkbox" id="38" checked><label for="38">38</label>
-		<input type="checkbox" id="39" checked><label for="39">39</label>
-		<input type="checkbox" id="42" checked><label for="42">42</label>
-		<input type="checkbox" id="43" checked><label for="43">43</label>
-		<input type="checkbox" id="44" checked><label for="44">44</label>
-		<input type="checkbox" id="45" checked><label for="45">45</label>
-		<input type="checkbox" id="46" checked><label for="46">46</label><br>
+			<label>Land Johto Caves and Special Locations:</label>
+			<input type="checkbox" id="sprout" checked><label for="sprout">Sprout Tower</label>
+			<input type="checkbox" id="tin"><label for="tin">Tin Tower</label>
+			<input type="checkbox" id="burned" checked><label for="burned">Burned Tower</label>
+			<input type="checkbox" id="ice" checked><label for="burned">Ice Path</label>
+			<input type="checkbox" id="national" checked><label for="national">National Park</label>
+			<input type="checkbox" id="contest"><label for="contest">Bug Catching Contest</label>
+			<input type="checkbox" id="ilex" checked><label for="ilex">Ilex Forest</label>
+			<input type="checkbox" id="whirl"><label for="whirl">Whirl Islands</label>
+			<input type="checkbox" id="silver"><label for="silver">Mt. Silver and Silver Cave</label><br>
 
-		<label>Land Johto Caves and Special Locations:</label>
-		<input type="checkbox" id="sprout" checked><label for="sprout">Sprout Tower</label>
-		<input type="checkbox" id="tin"><label for="tin">Tin Tower</label>
-		<input type="checkbox" id="burned" checked><label for="burned">Burned Tower</label>
-		<input type="checkbox" id="ice" checked><label for="burned">Ice Path</label>
-		<input type="checkbox" id="national" checked><label for="national">National Park</label>
-		<input type="checkbox" id="contest"><label for="contest">Bug Catching Contest</label>
-		<input type="checkbox" id="ilex" checked><label for="ilex">Ilex Forest</label>
-		<input type="checkbox" id="whirl"><label for="whirl">Whirl Islands</label>
-		<input type="checkbox" id="silver"><label for="silver">Mt. Silver and Silver Cave</label><br>
+			<label>Surfing Johto Routes:</label>
+			<input type="checkbox" id="30surfing" checked><label for="30">30</label>
+			<input type="checkbox" id="31surfing" checked><label for="31surfing">31</label>
+			<input type="checkbox" id="32surfing" checked><label for="32surfing">32</label>
+			<input type="checkbox" id="34surfing" checked><label for="34surfing">34</label>
+			<input type="checkbox" id="35surfing" checked><label for="35surfing">35</label>
+			<input type="checkbox" id="36surfing" checked><label for="36surfing">40</label>
+			<input type="checkbox" id="37surfing" checked><label for="37surfing">41</label>
+			<input type="checkbox" id="42surfing" checked><label for="42surfing">42</label>
+			<input type="checkbox" id="43surfing" checked><label for="43surfing">43</label>
+			<input type="checkbox" id="44surfing" checked><label for="44surfing">44</label>
+			<input type="checkbox" id="45surfing" checked><label for="45surfing">45</label><br>
 
-		<label>Surfing Johto Routes:</label>
-		<input type="checkbox" id="30surfing" checked><label for="30">30</label>
-		<input type="checkbox" id="31surfing" checked><label for="31surfing">31</label>
-		<input type="checkbox" id="32surfing" checked><label for="32surfing">32</label>
-		<input type="checkbox" id="34surfing" checked><label for="34surfing">34</label>
-		<input type="checkbox" id="35surfing" checked><label for="35surfing">35</label>
-		<input type="checkbox" id="36surfing" checked><label for="36surfing">40</label>
-		<input type="checkbox" id="37surfing" checked><label for="37surfing">41</label>
-		<input type="checkbox" id="42surfing" checked><label for="42surfing">42</label>
-		<input type="checkbox" id="43surfing" checked><label for="43surfing">43</label>
-		<input type="checkbox" id="44surfing" checked><label for="44surfing">44</label>
-		<input type="checkbox" id="45surfing" checked><label for="45surfing">45</label><br>
+			<label>Surfing Johto Special Locations:</label>
+			<input type="checkbox" id="newbark" checked><label for="newbark">New Bark Town</label>
+			<input type="checkbox" id="cherrygrove" checked><label for="cherrygrove">Cherrygrove City</label>
+			<input type="checkbox" id="violet" checked><label for="violet">Violet City</label>
+			<input type="checkbox" id="cianwood" checked><label for="cianwood">Cianwood City</label>
+			<input type="checkbox" id="olivine" checked><label for="olivine">Olivine City</label>
+			<input type="checkbox" id="ecruteak" checked><label for="ecruteak">Ecruteak City</label>
+			<input type="checkbox" id="lake" checked><label for="lake">Lake of Rage</label>
+			<input type="checkbox" id="blackthorn" checked><label for="blackthorn">Blackthorn City</label>
+			<input type="checkbox" id="den"><label for="den">Dragon's Den</label><br><br>
 
-		<label>Surfing Johto Special Locations:</label>
-		<input type="checkbox" id="newbark" checked><label for="newbark">New Bark Town</label>
-		<input type="checkbox" id="cherrygrove" checked><label for="cherrygrove">Cherrygrove City</label>
-		<input type="checkbox" id="violet" checked><label for="violet">Violet City</label>
-		<input type="checkbox" id="cianwood" checked><label for="cianwood">Cianwood City</label>
-		<input type="checkbox" id="olivine" checked><label for="olivine">Olivine City</label>
-		<input type="checkbox" id="ecruteak" checked><label for="ecruteak">Ecruteak City</label>
-		<input type="checkbox" id="lake" checked><label for="lake">Lake of Rage</label>
-		<input type="checkbox" id="blackthorn" checked><label for="blackthorn">Blackthorn City</label>
-		<input type="checkbox" id="den"><label for="den">Dragon's Den</label><br><br>
+			<label>Johto Multiple Requirement For Access Locations:</label><br>
+			<label>Union Cave:</label>
+			<input type="checkbox" id="unionentrance" checked><label for="unionentrance">Union Cave Entrance</label>
+			<input type="checkbox" id="unionb1f" checked><label for="unionb1f">Union Cave B1F</label>
+			<input type="checkbox" id="unionb2f" checked><label for="unionb2f">Union Cave B2F</label>
+			<input type="checkbox" id="unionentrancesurfing" checked><label for="unionentrancesurfing">Union Cave Entrance Surfing</label>
+			<input type="checkbox" id="unionb1fsurfing" checked><label for="unionb1fsurfing">Union Cave B1F Surfing</label>
+			<input type="checkbox" id="unionb2fsurfing" checked><label for="unionb2fsurfing">Union Cave B2F Surfing</label><br>
 
-		<label>Johto Multiple Requirement For Access Locations:</label><br>
-		<label>Union Cave:</label>
-		<input type="checkbox" id="unionentrance" checked><label for="unionentrance">Union Cave Entrance</label>
-		<input type="checkbox" id="unionb1f" checked><label for="unionb1f">Union Cave B1F</label>
-		<input type="checkbox" id="unionb2f" checked><label for="unionb2f">Union Cave B2F</label>
-		<input type="checkbox" id="unionentrancesurfing" checked><label for="unionentrancesurfing">Union Cave Entrance Surfing</label>
-		<input type="checkbox" id="unionb1fsurfing" checked><label for="unionb1fsurfing">Union Cave B1F Surfing</label>
-		<input type="checkbox" id="unionb2fsurfing" checked><label for="unionb2fsurfing">Union Cave B2F Surfing</label><br>
+			<label>Ruins of Alph:</label>
+			<input type="checkbox" id="roaroom" checked><label for="roaroom">Ruins of Alph Room</label>
+			<input type="checkbox" id="roagrass" checked><label for="roagrass">Ruins of Alph Grass</label>
+			<input type="checkbox" id="roawater" checked><label for="roawater">Ruins of Alph Surfing</label><br>
 
-		<label>Ruins of Alph:</label>
-		<input type="checkbox" id="roaroom" checked><label for="roaroom">Ruins of Alph Room</label>
-		<input type="checkbox" id="roagrass" checked><label for="roagrass">Ruins of Alph Grass</label>
-		<input type="checkbox" id="roawater" checked><label for="roawater">Ruins of Alph Surfing</label><br>
+			<label>Slowpoke Well:</label>
+			<input type="checkbox" id="wellentrance" checked><label for="wellentrance">Slowpoke Well Entrance</label>
+			<input type="checkbox" id="wellb1f" checked><label for="wellb1f">Slowpoke Well B1F</label>
+			<input type="checkbox" id="wellentrancesurfing" checked><label for="wellentrancesurfing">Slowpoke Well Entrance Surfing</label>
+			<input type="checkbox" id="wellb1fsurfing" checked><label for="wellb1fsurfing">Slowpoke Well B1F Surfing</label><br>
 
-		<label>Slowpoke Well:</label>
-		<input type="checkbox" id="wellentrance" checked><label for="wellentrance">Slowpoke Well Entrance</label>
-		<input type="checkbox" id="wellb1f" checked><label for="wellb1f">Slowpoke Well B1F</label>
-		<input type="checkbox" id="wellentrancesurfing" checked><label for="wellentrancesurfing">Slowpoke Well Entrance Surfing</label>
-		<input type="checkbox" id="wellb1fsurfing" checked><label for="wellb1fsurfing">Slowpoke Well B1F Surfing</label><br>
+			<label>Dark Cave:</label>
+			<input type="checkbox" id="darkviolet" checked><label for="darkviolet">Dark Cave Violet Side</label>
+			<input type="checkbox" id="darkblackthorn" checked><label for="darkblackthorn">Dark Cave Blackthorn Side</label>
+			<input type="checkbox" id="darkvioletsurfing" checked><label for="darkvioletsurfing">Dark Cave Violet Side Surfing</label>
+			<input type="checkbox" id="darkblackthornsurfing" checked><label for="darkblackthornsurfing">Dark Cave Blackthorn Side Surfing</label><br>
 
-		<label>Dark Cave:</label>
-		<input type="checkbox" id="darkviolet" checked><label for="darkviolet">Dark Cave Violet Side</label>
-		<input type="checkbox" id="darkblackthorn" checked><label for="darkblackthorn">Dark Cave Blackthorn Side</label>
-		<input type="checkbox" id="darkvioletsurfing" checked><label for="darkvioletsurfing">Dark Cave Violet Side Surfing</label>
-		<input type="checkbox" id="darkblackthornsurfing" checked><label for="darkblackthornsurfing">Dark Cave Blackthorn Side Surfing</label><br>
-
-		<label>Mt. Mortar:</label>
-		<input type="checkbox" id="mortarentrance" checked><label for="mortarentrance">Mt. Mortar Entrance</label>
-		<input type="checkbox" id="mortar1f" checked><label for="mortar1f">Mt. Mortar 1F</label>
-		<input type="checkbox" id="mortar2f"><label for="mortar2f">Mt. Mortar 2F</label>
-		<input type="checkbox" id="mortarb1f"><label for="mortarb1f">Mt. Mortar B1F</label>
-		<input type="checkbox" id="mortarentrancesurfing"><label for="mortarentrancesurfing">Mt. Mortar Entrance Surfing</label>
-		<input type="checkbox" id="mortar2fsurfing"><label for="mortar2fsurfing">Mt. Mortar 2F Surfing</label>
-		<input type="checkbox" id="mortarb1fsurfing"><label for="mortarb1fsurfing">Mt. Mortar B1F Surfing</label><br><br>
-
-
-
-		<label>Land Kanto Routes:</label>
-		<input type="checkbox" id="1"><label for="1">1</label>
-		<input type="checkbox" id="2"><label for="2">2</label>
-		<input type="checkbox" id="3"><label for="3">3</label>
-		<input type="checkbox" id="4"><label for="4">4</label>
-		<input type="checkbox" id="5"><label for="5">5</label>
-		<input type="checkbox" id="6"><label for="6">6</label>
-		<input type="checkbox" id="7"><label for="7">7</label>
-		<input type="checkbox" id="8"><label for="8">8</label>
-		<input type="checkbox" id="9"><label for="9">9</label>
-		<input type="checkbox" id="10"><label for="10">10</label>
-		<input type="checkbox" id="11"><label for="11">11</label>
-		<input type="checkbox" id="13"><label for="13">13</label>
-		<input type="checkbox" id="14"><label for="14">14</label>
-		<input type="checkbox" id="15"><label for="15">15</label>
-		<input type="checkbox" id="16"><label for="16">16</label>
-		<input type="checkbox" id="17"><label for="17">17</label>
-		<input type="checkbox" id="18"><label for="18">18</label>
-		<input type="checkbox" id="21"><label for="21">21</label>
-		<input type="checkbox" id="22"><label for="22">22</label>
-		<input type="checkbox" id="24"><label for="24">24</label>
-		<input type="checkbox" id="25"><label for="25">25</label>
-		<input type="checkbox" id="26"><label for="26">26</label>
-		<input type="checkbox" id="27"><label for="27">27</label>
-		<input type="checkbox" id="28"><label for="28">28</label><br>
+			<label>Mt. Mortar:</label>
+			<input type="checkbox" id="mortarentrance" checked><label for="mortarentrance">Mt. Mortar Entrance</label>
+			<input type="checkbox" id="mortar1f" checked><label for="mortar1f">Mt. Mortar 1F</label>
+			<input type="checkbox" id="mortar2f"><label for="mortar2f">Mt. Mortar 2F</label>
+			<input type="checkbox" id="mortarb1f"><label for="mortarb1f">Mt. Mortar B1F</label>
+			<input type="checkbox" id="mortarentrancesurfing"><label for="mortarentrancesurfing">Mt. Mortar Entrance Surfing</label>
+			<input type="checkbox" id="mortar2fsurfing"><label for="mortar2fsurfing">Mt. Mortar 2F Surfing</label>
+			<input type="checkbox" id="mortarb1fsurfing"><label for="mortarb1fsurfing">Mt. Mortar B1F Surfing</label><br><br>
 
 
 
-		<label>Land Kanto Caves and Special Locations:</label>
-		<input type="checkbox" id="tohjo"><label for="tohjo">Tohjo Falls</label>
-		<input type="checkbox" id="diglett"><label for="diglett">Diglett's Cave</label>
-		<input type="checkbox" id="moon"><label for="moon">Mt. Moon</label>
-		<input type="checkbox" id="tunnel"><label for="tunnel">Rock Tunnel</label>
-		<input type="checkbox" id="vroad"><label for="vroad">Victory Road</label><br>
+			<label>Land Kanto Routes:</label>
+			<input type="checkbox" id="1"><label for="1">1</label>
+			<input type="checkbox" id="2"><label for="2">2</label>
+			<input type="checkbox" id="3"><label for="3">3</label>
+			<input type="checkbox" id="4"><label for="4">4</label>
+			<input type="checkbox" id="5"><label for="5">5</label>
+			<input type="checkbox" id="6"><label for="6">6</label>
+			<input type="checkbox" id="7"><label for="7">7</label>
+			<input type="checkbox" id="8"><label for="8">8</label>
+			<input type="checkbox" id="9"><label for="9">9</label>
+			<input type="checkbox" id="10"><label for="10">10</label>
+			<input type="checkbox" id="11"><label for="11">11</label>
+			<input type="checkbox" id="13"><label for="13">13</label>
+			<input type="checkbox" id="14"><label for="14">14</label>
+			<input type="checkbox" id="15"><label for="15">15</label>
+			<input type="checkbox" id="16"><label for="16">16</label>
+			<input type="checkbox" id="17"><label for="17">17</label>
+			<input type="checkbox" id="18"><label for="18">18</label>
+			<input type="checkbox" id="21"><label for="21">21</label>
+			<input type="checkbox" id="22"><label for="22">22</label>
+			<input type="checkbox" id="24"><label for="24">24</label>
+			<input type="checkbox" id="25"><label for="25">25</label>
+			<input type="checkbox" id="26"><label for="26">26</label>
+			<input type="checkbox" id="27"><label for="27">27</label>
+			<input type="checkbox" id="28"><label for="28">28</label><br>
+
+
+
+			<label>Land Kanto Caves and Special Locations:</label>
+			<input type="checkbox" id="tohjo"><label for="tohjo">Tohjo Falls</label>
+			<input type="checkbox" id="diglett"><label for="diglett">Diglett's Cave</label>
+			<input type="checkbox" id="moon"><label for="moon">Mt. Moon</label>
+			<input type="checkbox" id="tunnel"><label for="tunnel">Rock Tunnel</label>
+			<input type="checkbox" id="vroad"><label for="vroad">Victory Road</label><br>
 
 
 
 
-		<label>Surfing Kanto Routes:</label>
-		<input type="checkbox" id="4surfing"><label for="4surfing">4</label>
-		<input type="checkbox" id="6surfing"><label for="6surfing">6</label>
-		<input type="checkbox" id="9surfing"><label for="9surfing">9</label>
-		<input type="checkbox" id="10surfing"><label for="10surfing">10</label>
-		<input type="checkbox" id="12surfing"><label for="12surfing">12</label>
-		<input type="checkbox" id="13surfing"><label for="13surfing">13</label>
-		<input type="checkbox" id="19surfing"><label for="19surfing">19</label>
-		<input type="checkbox" id="20surfing"><label for="20surfing">20</label>
-		<input type="checkbox" id="21surfing"><label for="21surfing">21</label>
-		<input type="checkbox" id="22surfing"><label for="22surfing">22</label>
-		<input type="checkbox" id="24surfing"><label for="24surfing">24</label>
-		<input type="checkbox" id="25surfing"><label for="25surfing">25</label>
-		<input type="checkbox" id="26surfing"><label for="26surfing">26</label>
-		<input type="checkbox" id="27surfing"><label for="27surfing">27</label>
-		<input type="checkbox" id="28surfing"><label for="28surfing">28</label><br>
+			<label>Surfing Kanto Routes:</label>
+			<input type="checkbox" id="4surfing"><label for="4surfing">4</label>
+			<input type="checkbox" id="6surfing"><label for="6surfing">6</label>
+			<input type="checkbox" id="9surfing"><label for="9surfing">9</label>
+			<input type="checkbox" id="10surfing"><label for="10surfing">10</label>
+			<input type="checkbox" id="12surfing"><label for="12surfing">12</label>
+			<input type="checkbox" id="13surfing"><label for="13surfing">13</label>
+			<input type="checkbox" id="19surfing"><label for="19surfing">19</label>
+			<input type="checkbox" id="20surfing"><label for="20surfing">20</label>
+			<input type="checkbox" id="21surfing"><label for="21surfing">21</label>
+			<input type="checkbox" id="22surfing"><label for="22surfing">22</label>
+			<input type="checkbox" id="24surfing"><label for="24surfing">24</label>
+			<input type="checkbox" id="25surfing"><label for="25surfing">25</label>
+			<input type="checkbox" id="26surfing"><label for="26surfing">26</label>
+			<input type="checkbox" id="27surfing"><label for="27surfing">27</label>
+			<input type="checkbox" id="28surfing"><label for="28surfing">28</label><br>
 
-		<label>Surfing Kanto Special Locations:</label>
-		<input type="checkbox" id="pallet"><label for="pallet">Pallet Town</label>
-		<input type="checkbox" id="viridian"><label for="viridian">Viridian City</label>
-		<input type="checkbox" id="cerulean"><label for="cerulean">Cerulean City</label>
-		<input type="checkbox" id="vermilion"><label for="vermilion">Vermilion City</label>
-		<input type="checkbox" id="celadon"><label for="celadon">Celadon City</label>
-		<input type="checkbox" id="fuschia"><label for="fuschia">Fuschia City</label>
-		<input type="checkbox" id="cinnabar"><label for="cinnabar">Cinnabar Island</label><br><br>
+			<label>Surfing Kanto Special Locations:</label>
+			<input type="checkbox" id="pallet"><label for="pallet">Pallet Town</label>
+			<input type="checkbox" id="viridian"><label for="viridian">Viridian City</label>
+			<input type="checkbox" id="cerulean"><label for="cerulean">Cerulean City</label>
+			<input type="checkbox" id="vermilion"><label for="vermilion">Vermilion City</label>
+			<input type="checkbox" id="celadon"><label for="celadon">Celadon City</label>
+			<input type="checkbox" id="fuschia"><label for="fuschia">Fuschia City</label>
+			<input type="checkbox" id="cinnabar"><label for="cinnabar">Cinnabar Island</label><br><br>
 
-		<label> Miscellaneous:</label>
-		<input type="checkbox" id="fishing"><label for="fishing">Fishing</label>
-		<input type="checkbox" id="headbutt"><label for="headbutt">Headbutt Trees</label>
-		<input type="checkbox" id="rocksmash"><label for="rocksmash">Rock Smash Rocks</label>
-		<input type="checkbox" id="swarms"><label for="swarms">Swarms</label><br><br>
+			<label> Miscellaneous:</label>
+			<input type="checkbox" id="fishing"><label for="fishing">Fishing</label>
+			<input type="checkbox" id="headbutt"><label for="headbutt">Headbutt Trees</label>
+			<input type="checkbox" id="rocksmash"><label for="rocksmash">Rock Smash Rocks</label>
+			<input type="checkbox" id="swarms"><label for="swarms">Swarms</label><br><br>
 
-		<label>Trades:</label>
-		<input type="checkbox" id="abra" checked><label for="abra">Abra</label>
-		<input type="checkbox" id="bellsprout" checked><label for="bellsprout">Bellsprout</label>
-		<input type="checkbox" id="krabby" checked><label for="krabby">Krabby</label>
-		<input type="checkbox" id="dragonair" checked><label for="dragonair">Dragonair</label>
-		<input type="checkbox" id="haunter"><label for="haunter">Haunter</label>
-		<input type="checkbox" id="dugtrio"><label for="dugtrio">Dugtrio</label>
-		<input type="checkbox" id="chansey"><label for="chansey">Chansey</label><br><br>
+			<label>Trades:</label>
+			<input type="checkbox" id="abra" checked><label for="abra">Abra</label>
+			<input type="checkbox" id="bellsprout" checked><label for="bellsprout">Bellsprout</label>
+			<input type="checkbox" id="krabby" checked><label for="krabby">Krabby</label>
+			<input type="checkbox" id="dragonair" checked><label for="dragonair">Dragonair</label>
+			<input type="checkbox" id="haunter"><label for="haunter">Haunter</label>
+			<input type="checkbox" id="dugtrio"><label for="dugtrio">Dugtrio</label>
+			<input type="checkbox" id="chansey"><label for="chansey">Chansey</label><br><br>
 
-		<label>Statics:</label>
-		<input type="checkbox" id="lapras" checked><label for="lapras">Lapras</label>
-		<input type="checkbox" id="electrodes" checked><label for="electrodes">Electrodes</label>
-		<input type="checkbox" id="lugia"><label for="lugia">Lugia</label>
-		<input type="checkbox" id="gyarados" checked><label for="gyarados">Gyarados</label>
-		<input type="checkbox" id="sudowoodo" checked><label for="sudowoodo">Sudowoodo</label>
-		<input type="checkbox" id="snorlax"><label for="snorlax">Snorlax</label>
-		<input type="checkbox" id="hooh" checked><label for="hooh">Ho-oh</label>
-		<input type="checkbox" id="suicune" checked><label for="suicune">Suicune</label>
-		<input type="checkbox" id="rockettraps" checked><label for="rockettraps">Rocket Traps</label>
-		<input type="checkbox" id="shuckie" checked><label for="shuckie">Shuckie</label>	
-		<input type="checkbox" id="tyrogue"><label for="tyrogue">Tyrogue</label>
-		<input type="checkbox" id="mysteryegg"><label for="mysteryegg">Mystery Egg</label>
-		<input type="checkbox" id="kenya" checked><label for="kenya">Kenya</label>
-		<input type="checkbox" id="eevee" checked><label for="eevee">Eevee</label>
-		<input type="checkbox" id="dratini"><label for="dratini">Dratini</label>
-		<input type="checkbox" id="roamers"><label for="roamers">Roamers</label>
-		<input type="checkbox" id="gamecornerjohto" checked><label for="gamecornerjohto">Game Corner Johto</label>
-		<input type="checkbox" id="gamecornerkanto"><label for="gamecornerkanto">Game Corner Kanto</label>
-		<input type="checkbox" id="oddegg"><label for="oddegg">Odd Egg</label>
-		<input type="checkbox" id="oddeggshinies"><label for="oddeggshinies">Odd Egg Shinies</label><br><br>
-		<input type="submit" id="submit" value="Submit" onclick="return handleLogFile()"><br><br>
+			<label>Statics:</label>
+			<input type="checkbox" id="lapras" checked><label for="lapras">Lapras</label>
+			<input type="checkbox" id="electrodes" checked><label for="electrodes">Electrodes</label>
+			<input type="checkbox" id="lugia"><label for="lugia">Lugia</label>
+			<input type="checkbox" id="gyarados" checked><label for="gyarados">Gyarados</label>
+			<input type="checkbox" id="sudowoodo" checked><label for="sudowoodo">Sudowoodo</label>
+			<input type="checkbox" id="snorlax"><label for="snorlax">Snorlax</label>
+			<input type="checkbox" id="hooh" checked><label for="hooh">Ho-oh</label>
+			<input type="checkbox" id="suicune" checked><label for="suicune">Suicune</label>
+			<input type="checkbox" id="rockettraps" checked><label for="rockettraps">Rocket Traps</label>
+			<input type="checkbox" id="shuckie" checked><label for="shuckie">Shuckie</label>	
+			<input type="checkbox" id="tyrogue"><label for="tyrogue">Tyrogue</label>
+			<input type="checkbox" id="mysteryegg"><label for="mysteryegg">Mystery Egg</label>
+			<input type="checkbox" id="kenya" checked><label for="kenya">Kenya</label>
+			<input type="checkbox" id="eevee" checked><label for="eevee">Eevee</label>
+			<input type="checkbox" id="dratini"><label for="dratini">Dratini</label>
+			<input type="checkbox" id="roamers"><label for="roamers">Roamers</label>
+			<input type="checkbox" id="gamecornerjohto" checked><label for="gamecornerjohto">Game Corner Johto</label>
+			<input type="checkbox" id="gamecornerkanto"><label for="gamecornerkanto">Game Corner Kanto</label>
+			<input type="checkbox" id="oddegg"><label for="oddegg">Odd Egg</label>
+			<input type="checkbox" id="oddeggshinies"><label for="oddeggshinies">Odd Egg Shinies</label><br>
+		</div><br>
+			<input type="submit" id="submit" value="Submit" onclick="return handleLogFile()"><br><br>
 	</form>
 </div>
 <p id="content">
 <div id="report">
 	<h2> Report </h2>
-	<button type="button" onclick="toggleReportDisplay()">Go Back</button>
-	<h3> Goals Not Obtainable: </h3>
-	<ul id="unobtainable">
-	</ul>
-	<h3> Goals Obtainable: </h3>
-	<ul id="obtainable">
-	</ul>
+	<button type="button" onclick="toggleReportDisplay()">Go Back</button><br>
+	<br>
+	<table>
+		<tr>
+			<td>
+				<h3> Goals Not Obtainable: </h3>
+				<ul id="unobtainable">
+				</ul>
+			</td>
+			<td>
+				<h3> Information Not Obtainable: </h3>
+				<ul id="informationunobtainable">
+				</ul>
+			</td>
+		</tr>
+		<tr id="obtainableRow">
+			<td>
+				<h3> Goals Obtainable: </h3>
+				<ul id="obtainable">
+				</ul>
+			</td>
+			<td>
+				<h3> Information Obtainable: </h3>
+				<ul id="informationobtainable">
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<br>
 	<button type="button" onclick="toggleReportDisplay()">Go Back</button> 	
 </div>
 </body>

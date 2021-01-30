@@ -299,6 +299,155 @@ var pokeGoals = {
 	"Zubat, Koffing, or Grimer": [["ZUBAT", "KOFFING", "GRIMER"]]
 }
 
+var mandatoryTrainers = [1, 2, 3, 4, 7, 42, 79, 80, 98, 189, 190, 213, 400, 402, 403, 405, 478, 479, 486, 511, 512, 513, 514, 515, 536];
+
+var azaleaLeftSide = [237, 516];
+var azaleaRightSide = [236, 519];
+var route39male = [497];
+var route39female = [527];
+
+var route32trainers = [43, 44, 91, 250, 251, 254, 424];
+var route35trainers = [81, 238, 390, 393, 426, 427, 452, 453, 535];
+var route44trainers = [85, 134, 151, 186, 259, 260, 419];
+var lighthousetrainers = [82, 84, 102, 220, 224, 316, 317, 318, 319];
+var nationalparktrainers = [55, 101, 496, 526];
+var phonebooktrainers = [41, 55, 57, 234, 238, 251, 354, 393, 424, 425, 451]
+var pokemaniactrainers = [174, 175, 176, 177, 178, 179, 180, 184, 185, 188]
+var hikertrainers = [351, 352, 353, 354, 355, 356, 357, 359, 367, 369]
+var swimmertrainers = [276, 277, 278, 280, 281, 282, 296, 297, 298, 299, 300, 301, 302]
+var mineralbadgetrainers = [6, 102, 220, 224]
+var glacierbadgetrainers = [5, 225]
+var risingbadgetrainers = [8, 118, 119, 138, 139]
+var callsailortrainer = [316]
+var calllasstrainer = [107]
+var callblackbelttrainer = [406]
+var mortarnerd = [341]
+var eusine = [541]
+var alphpsychic = [412]
+var tintower = [483, 484, 485]
+
+var trainerInfo = {
+	1: ["LEADER FALKNER", "VIOLET CITY GYM", "mandatory trainer"],
+	2: ["LEADER WHITNEY", "GOLDENROD CITY GYM", "mandatory trainer"],
+	3: ["LEADER BUGSY", "AZALEA TOWN GYM", "mandatory trainer"],
+	4: ["LEADER MORTY", "ECRUTEAK CITY GYM", "mandatory trainer"],
+	5: ["LEADER PRYCE", "MAHOGANY CITY GYM", "glacier badge trainer"],
+	6: ["LEADER JASMINE", "OLIVINE CITY GYM", "mineral badge trainer"],
+	7: ["LEADER CHUCK", "CIANWOOD CITY GYM", "mandatory trainer"],
+	8: ["LEADER CLAIR", "BLACKTHORN CITY GYM", "rising badge trainer"],
+	41: ["YOUNGSTER JOEY", "ROUTE 30", "phonebook trainer"],
+	42: ["YOUNGSTER MIKEY", "ROUTE 30", "mandatory trainer"],
+	43: ["YOUNGSTER ALBERT", "ROUTE 32", "route 32 trainer"],
+	44: ["YOUNGSTER GORDON", "ROUTE 32", "route 32 trainer"],
+	55: ["SCHOOLBOY JACK", "NATIONAL PARK", "national park/phonebook trainer"],
+	57: ["SCHOOLBOY ALAN", "ROUTE 36", "route 36/phonebook trainer"],
+	79: ["BIRD KEEPER ROD", "VIOLET CITY GYM", "mandatory trainer"],
+	80: ["BIRD KEEPER ABE", "VIOLET CITY GYM", "mandatory trainer"],
+	81: ["BIRD KEEPER BRYAN", "ROUTE 35", "route 35 trainer"],
+	82: ["BIRD KEEPER THEO", "LIGHTHOUSE", "lighthouse trainer"],
+	84: ["BIRD KEEPER DENNIS", "LIGHTHOUSE", "lighthouse trainer"],
+	85: ["BIRD KEEPER VANCE", "ROUTE 44", "route 44 trainer"],
+	91: ["BIRD KEEPER PETER", "ROUTE 32", "route 32 trainer"],
+	98: ["LASS CARRIE", "GOLDENROD CITY GYM", "mandatory trainer"],
+	101: ["LASS KRISE", "NATIONAL PARK", "national park trainer"],
+	102: ["LASS CONNIE", "LIGHTHOUSE", "lighthouse/mineral badge trainer"],
+	107: ["LASS DANA", "ROUTE 38", "call lass trainer"],
+	118: ["COOLTRAINER PAUL", "BLACKTORN CITY GYM", "rising badge trainer"],
+	119: ["COOLTRAINER CODY", "BLACKTORN CITY GYM", "rising badge trainer"],
+	134: ["COOLTRAINER ALLEN", "ROUTE 44", "route 44 trainer"],
+	138: ["COOLTRAINER FRAN", "BLACKTORN CITY GYM", "rising badge trainer"],
+	139: ["COOLTRAINER LOLA", "BLACKTORN CITY GYM", "rising badge trainer"],
+	151: ["COOLTRAINER CYBIL", "ROUTE 44", "route 44 trainer"],
+	174: ["POKÉMANIAC LARRY", "UNION CAVE", "pokémaniac trainer"],
+	175: ["POKÉMANIAC ANDREW", "UNION CAVE", "pokémaniac trainer"],
+	176: ["POKÉMANIAC CALVIN", "UNION CAVE", "pokémaniac trainer"],
+	177: ["POKÉMANIAC SHANE", "ROUTE 42", "pokémaniac trainer"],
+	178: ["POKÉMANIAC BEN", "ROUTE 43", "pokémaniac trainer"],
+	179: ["POKÉMANIAC BRENT", "ROUTE 43", "pokémaniac trainer"],
+	180: ["POKÉMANIAC RON", "ROUTE 43", "pokémaniac trainer"],
+	184: ["POKÉMANIAC ISAAC", "GOLDENROD TUNNEL", "pokémaniac trainer"],
+	185: ["POKÉMANIAC DONALD", "GOLDENROD TUNNEL", "pokémaniac trainer"],
+	186: ["POKÉMANIAC ZACH", "ROUTE 44", "route 44 trainer"],
+	188: ["POKÉMANIAC MILLER", "MT. MORTAR", "pokémaniac trainer"],
+	189: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
+	190: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
+	213: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
+	220: ["GENTLEMAN PRESTON", "LIGHTHOUSE", "lighthouse/mineral badge trainer"],
+	224: ["GENTLEMAN ALFRED", "LIGHTHOUSE", "lighthouse/mineral badge trainer"],
+	225: ["SKIER ROXANNE", "MAHOGANY CITY GYM", "glacier badge trainer"],
+	234: ["BUG CATCHER WADE", "ROUTE 31", "phonebook trainer"],
+	236: ["BUG CATCHER AL", "AZALEA TOWN GYM", "Azalea right side"],
+	237: ["BUG CATCHER JOSH", "AZALEA TOWN GYM", "Azalea left side"],
+	238: ["BUG CATCHER ARNIE", "ROUTE 35", "route 35/phonebook trainer"],
+	250: ["FISHER JUSTIN", "ROUTE 32", "route 32 trainer"],
+	251: ["FISHER RALPH", "ROUTE 32", "route 32/phonebook trainer"],
+	254: ["FISHER HENRY", "ROUTE 32", "route 32 trainer"],
+	259: ["FISHER WILTON", "ROUTE 44", "route 44 trainer"],
+	260: ["FISHER EDGAR", "ROUTE 44", "route 44 trainer"],
+	276: ["SWIMMER SIMON", "ROUTE 40", "swimmer trainer"],
+	277: ["SWIMMER RANDALL", "ROUTE 40", "swimmer trainer"],
+	278: ["SWIMMER CHARLIE", "ROUTE 41", "swimmer trainer"],
+	280: ["SWIMMER BERKE", "ROUTE 41", "swimmer trainer"],
+	281: ["SWIMMER KIRK", "ROUTE 41", "swimmer trainer"],
+	282: ["SWIMMER MATTHEW", "ROUTE 41", "swimmer trainer"],
+	296: ["SWIMMER ELAINE", "ROUTE 40", "swimmer trainer"],
+	297: ["SWIMMER PAULA", "ROUTE 40", "swimmer trainer"],
+	298: ["SWIMMER KAYLEE", "ROUTE 41", "swimmer trainer"],
+	299: ["SWIMMER SUSIE", "ROUTE 41", "swimmer trainer"],
+	300: ["SWIMMER DENISE", "ROUTE 41", "swimmer trainer"],
+	301: ["SWIMMER KARA", "ROUTE 41", "swimmer trainer"],
+	302: ["SWIMMER WENDY", "ROUTE 41", "swimmer trainer"],
+	316: ["SAILOR HUEY", "LIGHTHOUSE", "lighthouse/sailor call trainer"],
+	317: ["SAILOR TERRELL", "LIGHTHOUSE", "lighthouse trainer"],
+	318: ["SAILOR KENT", "LIGHTHOUSE", "lighthouse trainer"],
+	319: ["SAILOR ERNEST", "LIGHTHOUSE", "lighthouse trainer"],
+	341: ["SUPER NERD MARKUS", "MT.MORTAR", "Mt. Mortar trainer"],
+	351: ["HIKER RUSSELL", "UNION CAVE", "hiker trainer"],
+	352: ["HIKER PHILLIP", "UNION CAVE", "hiker trainer"],
+	353: ["HIKER LEONARD", "UNION CAVE", "hiker trainer"],
+	354: ["HIKER ANTHONY", "ROUTE 33", "hiker/phonebook trainer"],
+	355: ["HIKER BENJAMIN", "ROUTE 42", "hiker trainer"],
+	356: ["HIKER ERIK", "ROUTE 45", "hiker trainer"],
+	357: ["HIKER MICHAEL", "ROUTE 45", "hiker trainer"],
+	359: ["HIKER TIMOTHY", "ROUTE 45", "hiker trainer"],
+	367: ["HIKER DANIEL", "UNION CAVE", "hiker trainer"],
+	369: ["HIKER PARRY", "ROUTE 45", "hiker trainer"],
+	390: ["FIREBREATHER WALT", "ROUTE 35", "route 35 trainer"],
+	393: ["JUGGLER IRWIN", "ROUTE 35", "route 35/phonebook trainer"],
+	400: ["BLACKBELT YOSHI", "CIANWOOD CITY GYM", "mandatory trainer"],
+	402: ["BLACKBELT YAO", "CIANWOOD CITY GYM", "mandatory trainer"],
+	403: ["BLACKBELT NOB", "CIANWOOD CITY GYM", "mandatory trainer"],
+	405: ["BLACKBELT LUNG", "CIANWOOD CITY GYM", "mandatory trainer"],
+	406: ["BLACKBELT KENJI", "ROUTE 45", "call blackbelt trainer"],
+	412: ["PSYCHIC NATHAN", "RUINS OF ALPH", "Ruins of Alph trainer"],
+	424: ["PICNICKER LIZ", "ROUTE 32", "route 32/phonebook trainer"],
+	425: ["PICNICKER GINA", "ROUTE 34", "phonebook trainer"],
+	426: ["PICNICKER BROOKE", "ROUTE 35", "route 35 trainer"],
+	427: ["PICNICKER KIM", "ROUTE 35", "route 35 trainer"],
+	451: ["CAMPER TODD", "ROUTE 34", "phonebook trainer"],
+	452: ["CAMPER IVAN", "ROUTE 35", "route 35 trainer"],
+	453: ["CAMPER ELLIOT", "ROUTE 35", "route 35 trainer"],
+	478: ["SAGE JEFFREY", "ECRUTEAK CITY GYM", "mandatory trainer"],
+	479: ["SAGE PING", "ECRUTEAK CITY GYM", "mandatory trainer"],
+	483: ["SAGE PING", "ECRUTEAK CITY", "Tin Tower trainer"],
+	484: ["SAGE PING", "ECRUTEAK CITY", "Tin Tower trainer"],
+	485: ["SAGE PING", "ECRUTEAK CITY", "Tin Tower trainer"],
+	486: ["MEDIUM MARTHA", "ECRUTEAK CITY GYM", "mandatory trainer"],
+	496: ["POKÉFAN WILLIAM", "NATIONAL PARK", "National Park trainer"],
+	497: ["POKÉFAN DEREK", "ROUTE 38", "Male Pokéfan", "mandatory trainer"],
+	511: ["KIMONO GIRL NAOKO", "ECRUTEAK CITY", "mandatory trainer"],
+	512: ["KIMONO GIRL SAYO", "ECRUTEAK CITY", "mandatory trainer"],
+	513: ["KIMONO GIRL ZUKI", "ECRUTEAK CITY", "mandatory trainer"],
+	514: ["KIMONO GIRL KUNI", "ECRUTEAK CITY", "mandatory trainer"],
+	515: ["KIMONO GIRL MIKI", "ECRUTEAK CITY", "mandatory trainer"],
+	516: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea left side"],
+	519: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea right side"],
+	527: ["POKÉFAN BEVERLY", "NATIONAL PARK", "National Park trainer"],
+	527: ["POKÉFAN RUTH", "ROUTE 38", "Female Pokéfan"],
+	535: ["OFFICER DIRK", "ROUTE 35", "route 35 trainer"],
+	536: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
+	541: ["MYSTICALMAN EUSINE", "CIANWOOD CITY", "Eusine"]}
+
 function handleLogFile(){
 	const file = document.getElementById('logfile').files[0];
 	let reader = new FileReader();
@@ -310,7 +459,8 @@ function handleLogFile(){
 		obtainablePokes.statics = extractStatics(text, generateLegalStaticsArray());
 		obtainablePokes.trades = extractTrades(text, generateTradesArray());
 		obtainablePokes.routes = extractRoutes(text, generateRoutesArray());
-		analyseObtainableGoals(obtainablePokes);
+		var informationAvailable = extractTrainers(text, generateTrainersArray());
+		analyseObtainableGoals(obtainablePokes, informationAvailable);
 		toggleReportDisplay();
 	}
 	reader.readAsText(file, "UTF-8");
@@ -320,7 +470,7 @@ function handleLogFile(){
 function toggleReportDisplay() {
 	const options = document.getElementById('options');
 	const report = document.getElementById('report');
-	const obtainable = document.getElementById('obtainable'); 
+	const obtainable = document.getElementById('obtainableRow'); 
 	const spoilerfreemode = document.getElementById('spoilerfreemode'); 
 	if(report.style.display == 'none'){
 		if(spoilerfreemode.checked)
@@ -331,32 +481,54 @@ function toggleReportDisplay() {
     else {
         options.style.display = 'block';
         report.style.display = 'none';
-        report.innerHTML = '<h2> Report </h2>\n<button type="button" onclick="toggleReportDisplay()">Go Back</button>\n<h3> Goals Not Obtainable: </h3>\n<ul id="unobtainable">\n</ul>\n<h3> Goals Obtainable: </h3>\n<ul id="obtainable">\n</ul>\n<button type="button" onclick="toggleReportDisplay()">Go Back</button>'
+        report.innerHTML = '<h2> Report </h2>\n<button type="button" onclick="toggleReportDisplay()">Go Back</button>\n<br><br>\n<table>\n<tr>\n<td>\n<h3> Goals Not Obtainable: </h3>\n<ul id="unobtainable">\n</ul>\n<td><h3> Information Not Obtainable: </h3>\n<ul id="informationunobtainable">\n</ul>\n</td>\n</tr>\n<tr id="obtainableRow">\n<td>\n<h3 class="obtainable"> Goals Obtainable: </h3>\n<ul id="obtainable" class="obtainable">\n</ul>\n</td>\n<td>\n<h3 class="obtainable"> Information Obtainable: </h3>\n<ul id="informationobtainable" class="obtainable">\n</ul>\n</td>\n</tr>\n</table>\n<br><button type="button" onclick="toggleReportDisplay()">Go Back</button>'
         
     }
 }	
 
-function analyseObtainableGoals(obtainablePokes) {
+function analyseObtainableGoals(obtainablePokes, informationAvailable) {
 	var keys = Object.keys(pokeGoals);
 	for(var i = 0; i < keys.length; ++i) {
 		// requirements has two lists -> one with the actual Pokemon and another with the preevos that can be evolved into the Pokemon
 		var requirements = pokeGoals[keys[i]];
 		var availabilities = [];
+		var informationAvailabilities = [];
 		for(var j = 0; j < requirements[actualPokemon].length; ++j) {
 			var locations = checkPokemonAvailability(obtainablePokes, requirements[actualPokemon][j]);
+			var information = checkPokemonInformation(informationAvailable, requirements[actualPokemon][j])
 			availabilities.push(locations);
+			informationAvailabilities.push(information);
 		}
 		if(requirements.length == 2){
 			var availabilities_evolve = [];
+			var informationAvailabilities_evolve = [];
 			for(var j = 0; j < requirements[preEvolution].length; ++j) {
 				var locations = checkPokemonAvailability(obtainablePokes, requirements[preEvolution][j]);
+				var information = checkPokemonInformation(informationAvailable, requirements[preEvolution][j])				
 				availabilities_evolve.push(locations);
+				informationAvailabilities_evolve.push(information);
 			}
 			addAvailabilitiesToWebPage(keys[i], availabilities, availabilities_evolve);
+			addInformationAvailabilitiesToWebPage(keys[i], informationAvailabilities, informationAvailabilities_evolve);
 		}
-		else
+		else {
 			addAvailabilitiesToWebPage(keys[i], availabilities, []);
+			addInformationAvailabilitiesToWebPage(keys[i], informationAvailabilities, []);
+		}
 	}
+}
+
+function checkPokemonInformation(information, pokemon) {
+	var availabilities = [];
+	var trainerIds = Object.keys(information);
+	for(var i = 0; i < trainerIds.length; ++i) {
+		let trainerPokemon = information[trainerIds[i]];
+		for(var j = 0; j < trainerPokemon.length; ++j) {
+			if(trainerPokemon[j].localeCompare(pokemon) == 0)
+				availabilities.push(trainerIds[i]);
+		}
+	}
+	return availabilities;
 }
 
 // Returns a dictionary with location -> rarity for pokemon
@@ -428,21 +600,37 @@ function addListOfLocations(goal, availabilities, isPreEvo) {
 				var pokemon = pokeGoals[goal][index][i];
 				var rarity = availabilities[i][locations[j]];
 				var location = locations[j];
-				if(isPreEvo)
-					html += "<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>"
-				else
-					html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
+				if(!document.getElementById('noraresmode').checked || rarity != "RARE")
+					if(isPreEvo)
+						html += "<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>"
+					else
+						html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
 			}
 		}
 	}
 	return html;
 }
 
-function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
+function addInformation(goal, availabilities, isPreEvo) {
 	var html = "";
-	var listId = "obtainable";
+	var index = isPreEvo? preEvolution : actualPokemon;
+	var name = 0;
+	var location = 1;
+	var trainerPack = 2;
+	for(var i = 0; i < availabilities.length; ++i) {
+		var trainers = availabilities[i];
+		for(var j = 0; j < trainers.length; ++j) {
+			var trainer = trainers[j];
+			var pokemon = pokeGoals[goal][index][i];
+			html += ("<li> Fight " + trainerInfo[trainer][name] + " in " + trainerInfo[trainer][location] + " for " + pokemon + " information (" + trainerInfo[trainer][trainerPack] + "). </li>");	
+		}
+	}
+	return html;
+}
 
-	html += addListOfLocations(goal, availabilities, false);
+function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
+	var html = addListOfLocations(goal, availabilities, false);
+	var listId = "obtainable";
 
 	// Both the actual Pokemons and its pre evos can be used to complete the goal
 	if(availabilities_evolve.length >= 0)
@@ -451,6 +639,23 @@ function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve)
 	// Goal is not obtainable
 	if(html == "")
 		listId = "unobtainable";
+
+	html = "<ul>" + html + "</ul>";
+	html = "<li>" + goal + html + "</li>";
+	document.getElementById(listId).innerHTML += html;
+}
+
+function addInformationAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
+	var html = addInformation(goal, availabilities, false);
+	var listId = "informationobtainable";
+
+	// Both the actual Pokemons and its pre evos can be used to complete the goal
+	if(availabilities_evolve.length >= 0)
+		html += addInformation(goal, availabilities_evolve, true);
+
+	// Information is not obtainable
+	if(html == "")
+		listId = "informationunobtainable";
 
 	html = "<ul>" + html + "</ul>";
 	html = "<li>" + goal + html + "</li>";
@@ -496,11 +701,7 @@ function extractRoutes(text, routesArray){
 	var ret = {};
 	var line;
 	for(var i=0; i<routesArray.length;++i){
-		try {
-		    ret[routesArray[i]] = extractRoute(text[index+routes[routesArray[i]]]);
-		} catch(e) {
-			console.log(routesArray[i]);
-		}	
+		ret[routesArray[i]] = extractRoute(text[index+routes[routesArray[i]]]);
 	}
 	return ret;
 }
@@ -513,7 +714,6 @@ function extractRoute(encounterTable){
 		poke = pokes[i].split(' Lv');
 		ret.push([poke[0], parseInt(poke[1])]);
 	}
-	console.log(ret);
 	return ret;
 }
 
@@ -539,6 +739,22 @@ function extractStatics(text, staticsArray){
 		pokemon = line[line.length-1];
 		// Remove the trailing newline
 		ret[staticsArray[i]] = pokemon.substring(0, pokemon.length - 1);
+	}
+	return ret;
+}
+
+function extractTrainers(text, trainersArray){
+	const index = indexOf(text, "Trainers Pokemon");
+	var ret = {}
+	var line;
+	for(var i=0; i< trainersArray.length;++i){
+		var trainerPokemon = [];
+		line = text[index+parseInt(trainersArray[i])].split(' - ')[1];
+		var pokemons = line.split(', ');
+		for(var j = 0; j< pokemons.length; ++j) {
+			trainerPokemon.push(pokemons[j].split(" ")[0]);
+		}
+		ret[trainersArray[i]] = trainerPokemon;
 	}
 	return ret;
 }
@@ -861,6 +1077,33 @@ function generateLegalStaticsArray(){
 	}
 	staticsArray.sort(function(a,b){return a-b;});
 	return staticsArray;
+}
+
+function generateTrainersArray(){
+	var trainersArray = mandatoryTrainers;
+	if(document.getElementById("leftside").checked) trainersArray = trainersArray.concat(azaleaLeftSide);
+	if(document.getElementById("rightside").checked) trainersArray = trainersArray.concat(azaleaRightSide);
+	if(document.getElementById("39male").checked) trainersArray = trainersArray.concat(route39male);
+	if(document.getElementById("39female").checked) trainersArray = trainersArray.concat(route39female);
+	if(document.getElementById("32trainers").checked) trainersArray = trainersArray.concat(route32trainers);
+	if(document.getElementById("35trainers").checked) trainersArray = trainersArray.concat(route35trainers);
+	if(document.getElementById("lighthousetrainers").checked) trainersArray = trainersArray.concat(lighthousetrainers);
+	if(document.getElementById("nptrainers").checked) trainersArray = trainersArray.concat(nationalparktrainers);
+	if(document.getElementById("phonetrainers").checked) trainersArray = trainersArray.concat(phonebooktrainers);
+	if(document.getElementById("maniacs").checked) trainersArray = trainersArray.concat(pokemaniactrainers);
+	if(document.getElementById("hikers").checked) trainersArray = trainersArray.concat(hikertrainers);
+	if(document.getElementById("swimmers").checked) trainersArray = trainersArray.concat(swimmertrainers);
+	if(document.getElementById("olivinegym").checked) trainersArray = trainersArray.concat(mineralbadgetrainers);
+	if(document.getElementById("mahoganygym").checked) trainersArray = trainersArray.concat(glacierbadgetrainers);
+	if(document.getElementById("blackthorngym").checked) trainersArray = trainersArray.concat(risingbadgetrainers);
+	if(document.getElementById("38lass").checked) trainersArray = trainersArray.concat(calllasstrainer);
+	if(document.getElementById("lighthousesailor").checked) trainersArray = trainersArray.concat(callsailortrainer);
+	if(document.getElementById("45blackbelt").checked) trainersArray = trainersArray.concat(callblackbelttrainer);
+	if(document.getElementById("mortarnerd").checked) trainersArray = trainersArray.concat(mortarnerd);
+	if(document.getElementById("eusine").checked) trainersArray = trainersArray.concat(eusine);
+	if(document.getElementById("alphpsychic").checked) trainersArray = trainersArray.concat(alphpsychic);
+	if(document.getElementById("elders").checked) trainersArray = trainersArray.concat(tintower);
+	return [...new Set(trainersArray)];
 }
 
 function indexOf(text, expression){

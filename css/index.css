@@ -2,6 +2,34 @@ input{
     overflow: hidden;
   }
 
+td{
+	vertical-align: top;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
 *{
 	font-family: calibri;
+}
+
+.title {
+	font-weight: bold;
+}
+
+#optionsbox{
+	border:1px solid black;
+}
+
+#optionaltrainersbox{
+	border:1px solid black;
+}
+
+#routesbox {
+	border:1px solid black;
+}
+
+#logfilebox {
+	border:1px solid black;
 }
