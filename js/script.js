@@ -477,7 +477,7 @@ var trainerInfo = {
 	515: ["KIMONO GIRL MIKI", "ECRUTEAK CITY", "mandatory trainer"],
 	516: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea left side"],
 	519: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea right side"],
-	527: ["POKÉFAN BEVERLY", "NATIONAL PARK", "National Park trainer"],
+	526: ["POKÉFAN BEVERLY", "NATIONAL PARK", "National Park trainer"],
 	527: ["POKÉFAN RUTH", "ROUTE 38", "Female Pokéfan"],
 	535: ["OFFICER DIRK", "ROUTE 35", "route 35 trainer"],
 	536: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
