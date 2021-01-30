@@ -246,7 +246,7 @@ var statics = {
 };
 
 var pokeGoals = {
-	"2 Different Baby Pokémon": [["PICHU"," CLEFFA", "IGGLYBUFF", "TOGEPI", "TYROGUE", "SMOOCHUM", "ELEKID", "MAGBY"]],
+	"2 Different Baby Pokémon": [["PICHU", "CLEFFA", "IGGLYBUFF", "TOGEPI", "TYROGUE", "SMOOCHUM", "ELEKID", "MAGBY"]],
 	"2 Different Eeveelutions": [["JOLTEON", "FLAREON", "VAPOREON", "ESPEON", "UMBREON"], ["EEVEE"]],
 	"3 Different Genderless Pokémon": [["MAGNEMITE", "MAGNETON", "VOLTORB", "ELECTRODE", "STARYU", "STARMIE", "PORYGON", "PORYGON2",
 		"DITTO", "ARTICUNO", "ZAPDOS", "MOLTRES", "MEWTWO", "MEW", "UNOWN", "RAIKOU", "ENTEI", "SUICUNE", "LUGIA", "HO-OH", "CELEBI"], ["STARYU"]],
@@ -368,7 +368,7 @@ var trainerInfo = {
 	3: ["LEADER BUGSY", "AZALEA TOWN GYM", "mandatory trainer"],
 	4: ["LEADER MORTY", "ECRUTEAK CITY GYM", "mandatory trainer"],
 	5: ["LEADER PRYCE", "MAHOGANY CITY GYM", "Glacier Badge trainer"],
-	6: ["LEADER JASMINE", "OLIVINE CITY GYM", "mineral badge trainer"],
+	6: ["LEADER JASMINE", "OLIVINE CITY GYM", "Mineral Badge trainer"],
 	7: ["LEADER CHUCK", "CIANWOOD CITY GYM", "mandatory trainer"],
 	8: ["LEADER CLAIR", "BLACKTHORN CITY GYM", "Rising Badge trainer"],
 	41: ["YOUNGSTER JOEY", "ROUTE 30", "phonebook trainer"],
@@ -480,8 +480,8 @@ var trainerInfo = {
 	513: ["KIMONO GIRL ZUKI", "ECRUTEAK CITY", "mandatory trainer"],
 	514: ["KIMONO GIRL KUNI", "ECRUTEAK CITY", "mandatory trainer"],
 	515: ["KIMONO GIRL MIKI", "ECRUTEAK CITY", "mandatory trainer"],
-	516: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea left side"],
-	519: ["Sr&Jr Max & Joe", "AZALEA TOWN GYM", "Azalea right side"],
+	516: ["TWINS AMY & MAY", "AZALEA TOWN GYM", "Azalea left side"],
+	519: ["TWINS AMY & MAY", "AZALEA TOWN GYM", "Azalea right side"],
 	526: ["POKÉFAN BEVERLY", "NATIONAL PARK", "National Park trainer"],
 	527: ["POKÉFAN RUTH", "ROUTE 38", "Female Pokéfan"],
 	535: ["OFFICER DIRK", "ROUTE 35", "Route 35 trainer"],
