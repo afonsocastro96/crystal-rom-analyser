@@ -13,12 +13,12 @@
 		<input type="file" id="logfile">
 		</div><br>
 
-		<div id="optionsbox">
+		<div id="optionsbox" class="border">
 			<label class="title">Options: </label><br>
 			<input type="checkbox" id="spoilerfreemode"><label for="spoilerfreemode">Spoiler-free mode (check this if you are going to race and don't want to see where you can catch the Pokemon, just whether they exist or not)</label><br>
-			<input type="checkbox" id="noraresmode"><label for="noraresmode">No rares mode (check this if you want to guarantee that every goal has at least one Pokemon that is not a 10% encounter)</label>
+			<input type="checkbox" id="noraresmode"><label for="noraresmode">No rares mode (check this if you want to guarantee that every goal has at least one Pokemon that is not a 10% encounter)</label><br>
 		</div><br>
-		<div id="optionaltrainersbox">
+		<div id="optionaltrainersbox" class="border">
 			<label class="title">Optional Trainers: </label><br>
 			<input type="checkbox" id="leftside" checked><label for="leftside">Azalea Gym Left Side</label>
 			<input type="checkbox" id="rightside" checked><label for="rightside">Azalea Gym Right Side</label>
@@ -44,9 +44,23 @@
 			<input type="checkbox" id="alphpsychic"><label for="alphpsychic">Ruins of Alph Psychic</label>
 			<input type="checkbox" id="elders"><label for="elders">Tin Tower Elders</label>
 		</div><br>
-
-		<div id="routesbox">
-			<label class="title">Locations:</label><br>
+		<div id="removeitemsbox" class="border">
+			<label class="title">Item locations: </label><br>
+			<input type="checkbox" id="waterfallwhirlpoolitems"><label for="waterfallwhirlpool">Waterfall and Whirpool locked</label>
+			<input type="checkbox" id="mortaritems"><label for="waterfallwhirlpool">Mt. Mortar</label>
+			<input type="checkbox" id="darkcaveitems" checked=""><label for="darkcaveitems">Dark Cave</label>
+			<input type="checkbox" id="tinitems"><label for="tinitems">Tin Tower</label>
+			<input type="checkbox" id="bugcatchingitems"><label for="bugcatchingitems">Bug Catching Contest</label>
+			<input type="checkbox" id="alphhoohitems"><label for="alphhoohitems">Ruins of Alph Ho-oh chamber</label>
+			<input type="checkbox" id="alphflashitems"><label for="alphflashitems">Ruins of Alph Flash chamber</label>
+			<input type="checkbox" id="alphstoneitems" checked><label for="alphstoneitems">Ruins of Alph Water Stone chamber</label>
+			<input type="checkbox" id="unionsurfitems"><label for="unionsurfitems">Union Cave Surf-locked</label>
+			<input type="checkbox" id="lighthouseitems" checked><label for="lighthouseitems">Lighthouse</label>
+			<input type="checkbox" id="hideoutitems" checked><label for="hideoutitems">Rocket Hideout</label>
+			<input type="checkbox" id="basementitems" checked><label for="basementitems">Dept. Store Basement</label>
+		</div><br>
+		<div id="routesbox" class="border">
+			<label class="title">Pokemon Locations:</label><br>
 			<label>Land Johto Routes:</label>
 			<input type="checkbox" id="29" checked><label for="29">29</label>
 			<input type="checkbox" id="30" checked><label for="30">30</label>
@@ -166,7 +180,7 @@
 
 
 			<label>Land Kanto Caves and Special Locations:</label>
-			<input type="checkbox" id="tohjo"><label for="tohjo">Tohjo Falls</label>
+			<input type="checkbox" id="tohjo" checked><label for="tohjo">Tohjo Falls</label>
 			<input type="checkbox" id="diglett"><label for="diglett">Diglett's Cave</label>
 			<input type="checkbox" id="moon"><label for="moon">Mt. Moon</label>
 			<input type="checkbox" id="tunnel"><label for="tunnel">Rock Tunnel</label>

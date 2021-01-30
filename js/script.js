@@ -5,6 +5,7 @@ window.onload = function() {
 
 const actualPokemon = 0;
 const preEvolution = 1;
+const itemForGoal = 2;
 
 var routes = {
 	'SPROUT TOWER 1F': 1,
@@ -259,7 +260,7 @@ var pokeGoals = {
 	"Articuno, Zapdos, or Moltres" : [["ARTICUNO", "ZAPDOS", "MOLTRES"]],
 	"Bayleef, Quilava, or Croconaw": [["BAYLEEF", "QUILAVA", "CROCONAW"], ["CHIKORITA", "CYNDAQUIL", "TOTODILE"]],
 	"Beedrill or Butterfree": [["BEEDRILL", "BUTTERFREE"], ["WEEDLE", "KAKUNA", "CATERPIE", "METAPOD"]],
-	"Berry Juice or Elixer": [["SHUCKLE", "MAGIKARP"]],
+	"Berry Juice or Elixer": [["SHUCKLE", "MAGIKARP"], [], ["BERRY JUICE", "ELIXER"]],
 	"Clefable or Wigglytuff": [["CLEFABLE", "WIGGLYTUFF"], ["CLEFAIRY", "JIGGLYPUFF"]],
 	"Corsola or Qwilfish": [["CORSOLA", "QWILFISH"]],
 	"Cubone or Diglett" : [["CUBONE", "DIGLETT"]],
@@ -293,11 +294,46 @@ var pokeGoals = {
 	"Starmie or Cloyster": [["STARMIE", "CLOYSTER"], ["STARYU", "SHELLDER"]],
 	"Suicune, Raikou, or Entei": [["SUICUNE", "RAIKOU", "ENTEI"]],
 	"Sunflora or Exeggutor": [["SUNFLORA", "EXEGGUTOR"], ["SUNKERN", "EXEGGCUTE"]],
+	"TM34 (Swagger) or TM46 (Thief)" : [[], [], ["TM34", "TM46"]],
+	"TM04 (Rollout) or TM20 (Endure)" : [[], [], ["TM04", "TM20"]],
 	"Venonat or Paras" : [["VENONAT", "PARAS"]],
 	"Vileplume or Victreebel": [["VILEPLUME", "VICTREEBEL"], ["ODDISH", "GLOOM", "BELLSPROUT", "WEEPINBELL"]],
 	"Yanma or Piloswine" : [["YANMA", "PILOSWINE"]],
 	"Zubat, Koffing, or Grimer": [["ZUBAT", "KOFFING", "GRIMER"]]
 }
+
+var goldenrodBasementItems = [84, 85, 86, 87, 88, 89, 90, 91, 92, 93];
+var darkCaveItems = [151, 152, 153, 154, 155, 156];
+var hideoutItems = [64, 65, 66, 67, 68, 69,70, 71, 72, 73];
+var mtMortarWaterfallLockedItems = [97, 99, 101, 103, 105, 106, 107, 108, 109, 110, 253];
+var whirlpoolWaterfallLockedLocations = ["WHIRL ISLANDS",
+"SILVER CAVE",
+"DRAGON'S DEN",
+"TOHJO FALLS",
+"DIGLETT'S CAVE",
+"KANTO UNDERGROUND",
+"ROCK TUNNEL",
+"VICTORY ROAD",
+"CINNABAR ISLAND",
+"ROUTE 4",
+"ROUTE 9",
+"ROUTE 25",
+"CERULEAN CITY",
+"ROUTE 11",
+"VERMILION CITY",
+"OLIVINE CITY",
+"MT.MOON",
+"ROUTE 13",
+"ROUTE 15",
+"ROUTE 12",
+"ROUTE 28",
+"SILVER CAVE",
+"ROUTE 17",
+"CELADON CITY",
+"ROUTE 2",
+"ROUTE 26",
+"ROUTE 27",
+"SAFFRON CITY"];
 
 var mandatoryTrainers = [1, 2, 3, 4, 7, 42, 79, 80, 98, 189, 190, 213, 400, 402, 403, 405, 478, 479, 486, 511, 512, 513, 514, 515, 536];
 
@@ -448,6 +484,9 @@ var trainerInfo = {
 	536: ["ROCKET GRUNT", "SLOWPOKE WELL", "mandatory trainer"],
 	541: ["MYSTICALMAN EUSINE", "CIANWOOD CITY", "Eusine"]}
 
+var itemgoals = ["BERRY JUICE", "ELIXER", "TM34", "TM46", "TM04", "TM20"]
+
+
 function handleLogFile(){
 	const file = document.getElementById('logfile').files[0];
 	let reader = new FileReader();
@@ -459,8 +498,9 @@ function handleLogFile(){
 		obtainablePokes.statics = extractStatics(text, generateLegalStaticsArray());
 		obtainablePokes.trades = extractTrades(text, generateTradesArray());
 		obtainablePokes.routes = extractRoutes(text, generateRoutesArray());
-		var informationAvailable = extractTrainers(text, generateTrainersArray());
-		analyseObtainableGoals(obtainablePokes, informationAvailable);
+		var obtainableInformation = extractTrainers(text, generateTrainersArray());
+		var obtainableItems = extractItems(text, generateDisallowedItemsArray());
+		analyseObtainableGoals(obtainablePokes, obtainableInformation, obtainableItems);
 		toggleReportDisplay();
 	}
 	reader.readAsText(file, "UTF-8");
@@ -486,35 +526,38 @@ function toggleReportDisplay() {
     }
 }	
 
-function analyseObtainableGoals(obtainablePokes, informationAvailable) {
+function analyseObtainableGoals(obtainablePokes, obtainableInformation, obtainableItems) {
 	var keys = Object.keys(pokeGoals);
 	for(var i = 0; i < keys.length; ++i) {
 		// requirements has two lists -> one with the actual Pokemon and another with the preevos that can be evolved into the Pokemon
 		var requirements = pokeGoals[keys[i]];
 		var availabilities = [];
 		var informationAvailabilities = [];
+		var availabilities_evolve = [];
+		var informationAvailabilities_evolve = [];
+		var itemAvailabilities = [];
 		for(var j = 0; j < requirements[actualPokemon].length; ++j) {
 			var locations = checkPokemonAvailability(obtainablePokes, requirements[actualPokemon][j]);
-			var information = checkPokemonInformation(informationAvailable, requirements[actualPokemon][j])
+			var information = checkPokemonInformation(obtainableInformation, requirements[actualPokemon][j])
 			availabilities.push(locations);
 			informationAvailabilities.push(information);
 		}
-		if(requirements.length == 2){
-			var availabilities_evolve = [];
-			var informationAvailabilities_evolve = [];
+		if(requirements.length >= 2){
 			for(var j = 0; j < requirements[preEvolution].length; ++j) {
 				var locations = checkPokemonAvailability(obtainablePokes, requirements[preEvolution][j]);
-				var information = checkPokemonInformation(informationAvailable, requirements[preEvolution][j])				
+				var information = checkPokemonInformation(obtainableInformation, requirements[preEvolution][j])				
 				availabilities_evolve.push(locations);
 				informationAvailabilities_evolve.push(information);
 			}
-			addAvailabilitiesToWebPage(keys[i], availabilities, availabilities_evolve);
-			addInformationAvailabilitiesToWebPage(keys[i], informationAvailabilities, informationAvailabilities_evolve);
 		}
-		else {
-			addAvailabilitiesToWebPage(keys[i], availabilities, []);
-			addInformationAvailabilitiesToWebPage(keys[i], informationAvailabilities, []);
+		if(requirements.length >= 3) {
+			for(var j = 0; j < requirements[itemForGoal].length; ++j) {
+				var item = requirements[itemForGoal][j];
+				itemAvailabilities.push(obtainableItems[item]);
+			}
 		}
+		addAvailabilitiesToWebPage(keys[i], availabilities, availabilities_evolve, itemAvailabilities);
+		addInformationAvailabilitiesToWebPage(keys[i], informationAvailabilities, informationAvailabilities_evolve);
 	}
 }
 
@@ -592,9 +635,9 @@ function addListOfLocations(goal, availabilities, isPreEvo) {
 				var pokemon = pokeGoals[goal][index][i];
 				var location = locations[j];
 				if(isPreEvo)
-					html += ("<li> Evolve " + pokemon + ", available via the static " + locationRenamer(location) + ". </li>");
+					html += ("<li> Evolve " + pokemon + ", available via the static " + locationRenamer(location, true) + ". </li>");
 				else
-					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location) + ". </li>");
+					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location, true) + ". </li>");
 			}
 			else {
 				var pokemon = pokeGoals[goal][index][i];
@@ -602,13 +645,25 @@ function addListOfLocations(goal, availabilities, isPreEvo) {
 				var location = locations[j];
 				if(!document.getElementById('noraresmode').checked || rarity != "RARE")
 					if(isPreEvo)
-						html += "<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>"
+						html += "<li> Catch and evolve " + pokemon + ", " + rarity + " in " + locationRenamer(location, true) + ". </li>"
 					else
-						html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location) + ". </li>");
+						html += ("<li> Catch " + pokemon + ", " + rarity + " in " + locationRenamer(location, true) + ". </li>");
 			}
 		}
 	}
 	return html;
+}
+
+function addItemLocations(goal, itemAvailabilities) {
+	var html = "";
+	for(var i = 0; i < itemAvailabilities.length; ++i) {
+		var item = pokeGoals[goal][itemForGoal][i];
+		var locations = itemAvailabilities[i];
+		for(var j = 0; j < locations.length; ++j) {
+			html += ("<li> Pick up " + (item.includes("TM")? "": "the ") + item + " in " + locations[j] + ".</li>");
+		}
+	}
+	return html
 }
 
 function addInformation(goal, availabilities, isPreEvo) {
@@ -628,13 +683,16 @@ function addInformation(goal, availabilities, isPreEvo) {
 	return html;
 }
 
-function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
+function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve, itemAvailabilities) {
 	var html = addListOfLocations(goal, availabilities, false);
 	var listId = "obtainable";
 
 	// Both the actual Pokemons and its pre evos can be used to complete the goal
-	if(availabilities_evolve.length >= 0)
+	if(availabilities_evolve.length > 0)
 		html += addListOfLocations(goal, availabilities_evolve, true);
+
+	if(itemAvailabilities.length > 0)
+		html += addItemLocations(goal, itemAvailabilities);
 
 	// Goal is not obtainable
 	if(html == "")
@@ -660,31 +718,6 @@ function addInformationAvailabilitiesToWebPage(goal, availabilities, availabilit
 	html = "<ul>" + html + "</ul>";
 	html = "<li>" + goal + html + "</li>";
 	document.getElementById(listId).innerHTML += html;
-}
-
-
-function locationRenamer(text) {
-	if (text == "CUBONE")
-		return "CUBONE (second Goldenrod Game Corner Pokemon)";
-	else if (text == "ABRA")
-		return "ABRA (first Goldenrod Game Corner Pokemon)";
-	else if (text == "WOBBUFFET")
-		return "WOBBUFFET (third Goldenrod Game Corner Pokemon)";
-	else if (text == "ELECTRODE")
-		return "first ELECTRODE";
-	else if (text == "ELECTRODE(2)")
-		return "second ELECTRODE";
-	else if (text == "ELECTRODE(3)")
-		return "third ELECTRODE";
-	else if (text == "GEODUDE")
-		return "GEODUDE (Rocket Hideout Trap)";
-	else if (text == "KOFFING")
-		return "KOFFING (Rocket Hideout Trap)";
-	else if (text == "VOLTORB")
-		return "VOLTORB (Rocket Hideout Trap)";
-	else if (text == "Bug Catching")
-		return "BUG CATCHING CONTEST";
-	return text;
 }
 
 function extractStarters(text){
@@ -756,6 +789,31 @@ function extractTrainers(text, trainersArray){
 		}
 		ret[trainersArray[i]] = trainerPokemon;
 	}
+	return ret;
+}
+
+function extractItems(text, disallowedItemsArray) {
+	const index = indexOf(text, "Field Items");
+	const nItems = 260;
+	var ret = {};
+	for(var i = 0; i < itemgoals.length; ++i) {
+		ret[itemgoals[i]] = [];
+	}
+
+	for(var i=1; i <= nItems; ++i) {
+		var item = text[index+i].split("=> ")[1];
+		//remove trailing newline
+		item = item.substring(0, item.length-1);
+		if(i == 151)
+			console.log("Test");
+		if(itemgoals.includes(item)) {
+			var location = text[index+i].split(" @")[0];
+			location = locationRenamer(location, false);
+			if(!disallowedItemsArray.includes(location) && !disallowedItemsArray.includes(i))
+				ret[item].push(location); 
+		}
+	}
+
 	return ret;
 }
 
@@ -1106,11 +1164,96 @@ function generateTrainersArray(){
 	return [...new Set(trainersArray)];
 }
 
+function generateDisallowedItemsArray(){
+	var disallowedItemsArray = [];
+	if(!document.getElementById("waterfallwhirlpoolitems").checked) {
+		disallowedItemsArray = disallowedItemsArray.concat(mtMortarWaterfallLockedItems);
+		disallowedItemsArray = disallowedItemsArray.concat(whirlpoolWaterfallLockedLocations);
+	}
+	if(!document.getElementById("mortaritems").checked) disallowedItemsArray = disallowedItemsArray.concat(["MT.MORTAR", "MT.MORTAR (STRENGTH AND/OR WATERFALL-LOCKED)"]);
+	if(!document.getElementById("darkcaveitems").checked) disallowedItemsArray = disallowedItemsArray.concat(darkCaveItems);
+	if(!document.getElementById("tinitems").checked) disallowedItemsArray.push("TIN TOWER");
+	if(!document.getElementById("bugcatchingitems").checked) disallowedItemsArray.push("BUG CATCHING CONTEST");
+	if(!document.getElementById("alphhoohitems").checked) disallowedItemsArray.push("RUINS OF ALPH (HO-OH CHAMBER)");
+	if(!document.getElementById("alphhoohitems").checked) disallowedItemsArray.push("RUINS OF ALPH (FLASH CHAMBER)");
+	if(!document.getElementById("alphhoohitems").checked) disallowedItemsArray.push("RUINS OF ALPH (WATER STONE CHAMBER)");
+	if(!document.getElementById("unionsurfitems").checked) disallowedItemsArray.push("UNION CAVE (SURF-LOCKED)");
+	if(!document.getElementById("lighthouseitems").checked) disallowedItemsArray.push("LIGHTHOUSE");
+	if(!document.getElementById("hideoutitems").checked) disallowedItemsArray = disallowedItemsArray.concat(hideoutItems);
+	if(!document.getElementById("basementitems").checked) disallowedItemsArray = disallowedItemsArray.concat(goldenrodBasementItems);
+
+	return disallowedItemsArray;
+}
+
+function locationRenamer(text, isPokemonLocation) {
+	if(isPokemonLocation) {
+		// Statics
+		if (text == "CUBONE")
+			return "CUBONE (second Goldenrod Game Corner Pokemon)";
+		else if (text == "ABRA")
+			return "ABRA (first Goldenrod Game Corner Pokemon)";
+		else if (text == "WOBBUFFET")
+			return "WOBBUFFET (third Goldenrod Game Corner Pokemon)";
+		else if (text == "ELECTRODE")
+			return "first ELECTRODE";
+		else if (text == "ELECTRODE(2)")
+			return "second ELECTRODE";
+		else if (text == "ELECTRODE(3)")
+			return "third ELECTRODE";
+		else if (text == "GEODUDE")
+			return "GEODUDE (Rocket Hideout Trap)";
+		else if (text == "KOFFING")
+			return "KOFFING (Rocket Hideout Trap)";
+		else if (text == "VOLTORB")
+			return "VOLTORB (Rocket Hideout Trap)";
+		// Pokemon locations
+		else if (text == "Bug Catching")
+			return "BUG CATCHING CONTEST";
+		return text
+	} else {
+	// Item locations
+		if (text == "RUINS OF ALPH (3.30)")
+			return "RUINS OF ALPH (ESCAPE ROPE CHAMBER)";
+		else if (text == "RUINS OF ALPH (3.29)")
+			return "RUINS OF ALPH (HO-OH CHAMBER)";
+		else if (text == "RUINS OF ALPH (3.32)")
+			return "RUINS OF ALPH (FLASH CHAMBER)";
+		else if (text == "RUINS OF ALPH (3.32)")
+			return "RUINS OF ALPH (WATER STONE CHAMBER)";
+		else if (text == "NATIONAL PARK (3.16)")
+			return "BUG CATCHING CONTEST";
+		else if (text == "GOLDENROD CITY (3.53)")
+			return "GOLDENROD UNDERGROUND";
+		else if (text == "GOLDENROD CITY (3.54)")
+			return "GOLDENROD DEPT. STORE BASEMENT";
+		else if (text == "GOLDENROD CITY (3.55)")
+			return "GOLDENROD DEPT. STORE BASEMENT";
+		else if (text == "GOLDENROD CITY (3.56)")
+			return "GOLDENROD DEPT. STORE BASEMENT";
+		else if (text == "MAHOGANY TOWN (3.49)" )
+			return "ROCKET HIDEOUT";
+		else if (text == "MAHOGANY TOWN (3.50)" )
+			return "ROCKET HIDEOUT";
+		else if (text == "MAHOGANY TOWN (3.51)" )
+			return "ROCKET HIDEOUT";
+		else if (text == "UNDERGROUND (3.86)")
+			return "KANTO UNDERGROUND";
+		else if (text == "UNION CAVE (3.39)")
+			return "UNION CAVE (SURF-LOCKED)";
+		else if (text == "MT. MORTAR (3.58)")
+			return "MT.MORTAR (STRENGTH AND/OR WATERFALL-LOCKED)";
+		else if (text == "MT. MORTAR (3.59)")
+			return "MT.MORTAR (STRENGTH AND/OR WATERFALL-LOCKED)";
+		else if (text == "MT. MORTAR (3.60)")
+			return "MT.MORTAR (STRENGTH AND/OR WATERFALL-LOCKED)";
+		return text.split(" (")[0];
+	}
+}
+
 function indexOf(text, expression){
 	for(var i = 0; i < text.length; ++i){
 		if(text[i].includes(expression))
 			return i;
 	}
-
+	return -1;
 }
-

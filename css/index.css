@@ -18,18 +18,6 @@ table, th, td {
 	font-weight: bold;
 }
 
-#optionsbox{
-	border:1px solid black;
-}
-
-#optionaltrainersbox{
-	border:1px solid black;
-}
-
-#routesbox {
-	border:1px solid black;
-}
-
-#logfilebox {
+.border {
 	border:1px solid black;
 }
