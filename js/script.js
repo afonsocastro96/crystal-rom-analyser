@@ -463,12 +463,12 @@ var trainerInfo = {
 	451: ["CAMPER TODD", "ROUTE 34", "phonebook trainer"],
 	452: ["CAMPER IVAN", "ROUTE 35", "Route 35 trainer"],
 	453: ["CAMPER ELLIOT", "ROUTE 35", "Route 35 trainer"],
+	474: ["SAGE CHOW", "SPROUT TOWER", "Sprout Tower trainer"],
+	476: ["SAGE JIN", "SPROUT TOWER", "Sprout Tower trainer"],
 	478: ["SAGE JEFFREY", "ECRUTEAK CITY GYM", "mandatory trainer"],
-	478: ["SAGE CHOW", "SPROUT TOWER", "Sprout Tower trainer"],
-	478: ["SAGE JIN", "SPROUT TOWER", "Sprout Tower trainer"],
-	478: ["SAGE NEAL", "SPROUT TOWER", "Sprout Tower trainer"],
-	478: ["SAGE LI", "SPROUT TOWER", "Sprout Tower trainer"],
 	479: ["SAGE PING", "ECRUTEAK CITY GYM", "mandatory trainer"],
+	481: ["SAGE NEAL", "SPROUT TOWER", "Sprout Tower trainer"],
+	482: ["SAGE LI", "SPROUT TOWER", "Sprout Tower trainer"],
 	483: ["SAGE GAKU", "ECRUTEAK CITY", "Tin Tower trainer"],
 	484: ["SAGE MASA", "ECRUTEAK CITY", "Tin Tower trainer"],
 	485: ["SAGE KOJI", "ECRUTEAK CITY", "Tin Tower trainer"],
@@ -1164,6 +1164,7 @@ function generateTrainersArray(){
 	if(document.getElementById("mortarnerd").checked) trainersArray = trainersArray.concat(mortarnerd);
 	if(document.getElementById("eusine").checked) trainersArray = trainersArray.concat(eusine);
 	if(document.getElementById("alphpsychic").checked) trainersArray = trainersArray.concat(alphpsychic);
+	if(document.getElementById("sprout").checked) trainersArray = trainersArray.concat(sprouttower);
 	if(document.getElementById("elders").checked) trainersArray = trainersArray.concat(tintower);
 	return [...new Set(trainersArray)];
 }
