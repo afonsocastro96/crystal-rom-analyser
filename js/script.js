@@ -245,6 +245,11 @@ var statics = {
 	'TYROGUE(3)': 41
 };
 
+// Bidimensional array
+// first array has the Pokemon applicable for the goal if applicable
+// second array has the preevos, if applicable
+// third array has the items usable for the goal if applicable
+
 var pokeGoals = {
 	"2 Different Baby Pokémon": [["PICHU", "CLEFFA", "IGGLYBUFF", "TOGEPI", "TYROGUE", "SMOOCHUM", "ELEKID", "MAGBY"]],
 	"2 Different Eeveelutions": [["JOLTEON", "FLAREON", "VAPOREON", "ESPEON", "UMBREON"], ["EEVEE"]],
@@ -708,6 +713,10 @@ function addAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve,
 }
 
 function addInformationAvailabilitiesToWebPage(goal, availabilities, availabilities_evolve) {
+	// Not a Pokemon goal, irrelevant to continue
+	if(pokeGoals[goal][actualPokemon].length == 0)
+		return;
+
 	var html = addInformation(goal, availabilities, false);
 	var listId = "informationobtainable";
 
