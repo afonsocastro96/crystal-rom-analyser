@@ -27,7 +27,7 @@ var routes = {
 	'UNION CAVE B1F': 17,
 	'UNION CAVE B2F': 18,
 	'SLOWPOKE WELL ENTRANCE': 19,
-	'SLOWPOKE WELL B1F': 20,
+	'SLOWPOKE WELL B2F': 20,
 	'ILEX FOREST': 21,
 	'MT.MORTAR ENTRANCE': 22,
 	'MT.MORTAR 1F': 23,
@@ -74,7 +74,7 @@ var routes = {
 	'UNION CAVE B1F SURFING': 64,
 	'UNION CAVE B2F SURFING': 65,
 	'SLOWPOKE WELL ENTRANCE SURFING': 66,
-	'SLOWPOKE WELL B1F SURFING': 67,
+	'SLOWPOKE WELL B2F SURFING': 67,
 	'ILEX FOREST SURFING': 68,
 	'MT.MORTAR ENTRANCE SURFING': 69,
 	'MT.MORTAR 2F SURFING': 70,
@@ -934,9 +934,9 @@ function generateRoutesArray() {
 	if(document.getElementById('roawater').checked) routesArray.push('RUINS OF ALPH SURFING');
 
 	if(document.getElementById('wellentrance').checked) routesArray.push('SLOWPOKE WELL ENTRANCE');
-	if(document.getElementById('wellb1f').checked) routesArray.push('SLOWPOKE WELL B1F');
+	if(document.getElementById('wellb2f').checked) routesArray.push('SLOWPOKE WELL B2F');
 	if(document.getElementById('wellentrancesurfing').checked) routesArray.push('SLOWPOKE WELL ENTRANCE SURFING');
-	if(document.getElementById('wellb1fsurfing').checked) routesArray.push('SLOWPOKE WELL B1F SURFING');
+	if(document.getElementById('wellb2fsurfing').checked) routesArray.push('SLOWPOKE WELL B2F SURFING');
 	
 	if(document.getElementById('darkviolet').checked) routesArray.push('DARK CAVE VIOLET SIDE');
 	if(document.getElementById('darkblackthorn').checked) routesArray.push('DARK CAVE BLACKTHORN SIDE');
