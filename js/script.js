@@ -1173,7 +1173,7 @@ function generateTrainersArray(){
 	if(document.getElementById("mortarnerd").checked) trainersArray = trainersArray.concat(mortarnerd);
 	if(document.getElementById("eusine").checked) trainersArray = trainersArray.concat(eusine);
 	if(document.getElementById("alphpsychic").checked) trainersArray = trainersArray.concat(alphpsychic);
-	if(document.getElementById("sprout").checked) trainersArray = trainersArray.concat(sprouttower);
+	if(document.getElementById("sproutelders").checked) trainersArray = trainersArray.concat(sprouttower);
 	if(document.getElementById("elders").checked) trainersArray = trainersArray.concat(tintower);
 	return [...new Set(trainersArray)];
 }
