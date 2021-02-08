@@ -596,6 +596,11 @@ function checkPokemonAvailability(obtainablePokes, pokemon) {
 		if(obtainablePokes.statics[static_keys[i]].localeCompare(pokemon) == 0)
 			availabilities[static_keys[i]] = '-';
 	}
+	var tradeKeys = Object.keys(obtainablePokes.trades);
+	for(var i = 0; i < tradeKeys.length; ++i) {
+		if(obtainablePokes.trades[tradeKeys[i]].localeCompare(pokemon) == 0)
+			availabilities[tradeKeys[i]] = '-';
+	}
 	var routeKeys = Object.keys(obtainablePokes.routes);
 	for(var i = 0; i < routeKeys.length; ++i) {
 		var encounterTableSlots = obtainablePokes.routes[routeKeys[i]].length;
@@ -647,6 +652,14 @@ function addListOfLocations(goal, availabilities, isPreEvo) {
 					html += ("<li> Evolve " + pokemon + ", available via the static " + locationRenamer(location, true) + ". </li>");
 				else
 					html += ("<li>" + pokemon + " is available via the static " + locationRenamer(location, true) + ". </li>");
+			}
+			else if (Object.keys(trades).indexOf(locations[j]) != -1) {
+				var pokemon = pokeGoals[goal][index][i];
+				var location = locations[j];
+				if(isPreEvo)
+					html += ("<li> Get and evolve " + pokemon + " by trading " + location + ". </li>");
+				else
+					html += ("<li> Get  " + pokemon + " by trading " + location + ". </li>");
 			}
 			else {
 				var pokemon = pokeGoals[goal][index][i];
